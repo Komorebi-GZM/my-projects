@@ -1,0 +1,11 @@
+{
+  "runtime": "Python3.12",
+  "timeout": 60,
+  "memorySize": 256,
+  "triggers": [
+    {
+      "type": "timer",
+      "config": "0 */30 * * * * *"
+    }
+  ]
+}

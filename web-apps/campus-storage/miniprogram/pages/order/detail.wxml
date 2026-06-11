@@ -1,0 +1,101 @@
+<!--pages/order/detail.wxml-->
+<view class="container">
+  <!-- 加载状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 状态卡片 -->
+  <view class="status-card" wx:if="{{!loading && order.orderNo}}">
+    <view class="status-icon">{{statusIcon}}</view>
+    <view class="status-info">
+      <text class="status-text">{{order.statusText}}</text>
+      <text class="status-desc">{{statusDesc}}</text>
+    </view>
+  </view>
+
+  <!-- 状态时间轴 -->
+  <view class="card" wx:if="{{!loading && order.orderNo}}">
+    <view class="card-title">订单进度</view>
+    <view class="timeline">
+      <view
+        class="timeline-item {{item.completed ? 'completed' : ''}} {{item.isCurrent ? 'current' : ''}}"
+        wx:for="{{timeline}}"
+        wx:key="status"
+      >
+        <view class="timeline-dot"></view>
+        <view class="timeline-line" wx:if="{{index < timeline.length - 1}}"></view>
+        <view class="timeline-content">
+          <text class="timeline-status">{{item.text}}</text>
+          <text class="timeline-time" wx:if="{{item.time}}">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="card" wx:if="{{!loading && order.orderNo}}">
+    <view class="card-title">订单信息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-label">订单编号</text>
+        <text class="info-value">{{order.orderNo}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">物品类型</text>
+        <text class="info-value">{{order.itemTypeText}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">所在城市</text>
+        <text class="info-value">{{order.city}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">存放仓库</text>
+        <text class="info-value">{{order.warehouseName || order.warehouseId}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">创建时间</text>
+        <text class="info-value">{{order.createTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 费用明细 -->
+  <view class="card" wx:if="{{!loading && order.orderNo}}">
+    <view class="card-title">费用明细</view>
+    <view class="fee-list">
+      <view class="fee-item">
+        <text class="fee-label">存储费</text>
+        <text class="fee-value">¥{{(order.amount && order.amount.storageFee) || 0}}</text>
+      </view>
+      <view class="fee-item">
+        <text class="fee-label">配送费</text>
+        <text class="fee-value">¥{{(order.amount && order.amount.deliveryFee) || 0}}</text>
+      </view>
+      <view class="fee-item">
+        <text class="fee-label">保险费</text>
+        <text class="fee-value">¥{{(order.amount && order.amount.insuranceFee) || 0}}</text>
+      </view>
+      <view class="divider"></view>
+      <view class="fee-item fee-total">
+        <text class="fee-label">合计</text>
+        <text class="fee-value">¥{{(order.amount && order.amount.totalFee) || 0}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮区 -->
+  <view class="action-bar" wx:if="{{actions.length > 0 && !loading}}">
+    <view
+      class="action-btn {{item.type}}"
+      wx:for="{{actions}}"
+      wx:key="type"
+      bindtap="onAction"
+      data-type="{{item.type}}"
+      data-text="{{item.text}}"
+    >
+      {{item.text}}
+    </view>
+  </view>
+</view>

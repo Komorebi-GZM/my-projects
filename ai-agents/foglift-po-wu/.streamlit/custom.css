@@ -1,0 +1,736 @@
+/* FogLift·破雾 - 自定义CSS样式 */
+/* 科技蓝紫主题 */
+
+/* ========================================
+   全局变量
+======================================== */
+:root {
+    --primary-blue: #1E88E5;
+    --primary-purple: #7C4DFF;
+    --primary-gradient: linear-gradient(135deg, #1E88E5 0%, #7C4DFF 100%);
+    --bg-light: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --border-light: #E2E8F0;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+}
+
+/* ========================================
+   全局样式覆盖
+======================================== */
+.stApp {
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+    min-height: 100vh;
+}
+
+/* 侧边栏样式 */
+.stSidebar {
+    background: linear-gradient(180deg, #1E293B 0%, #334155 100%) !important;
+}
+
+.stSidebar .stButton button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.stSidebar .stButton button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.stSidebar .stButton button[kind="primary"] {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+}
+
+/* ========================================
+   主标题和Logo区域
+======================================== */
+.main-header {
+    background: var(--primary-gradient);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-lg);
+}
+
+.main-header h1 {
+    color: white !important;
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.main-header p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 8px 0 0 0;
+    font-size: 14px;
+}
+
+/* ========================================
+   卡片样式
+======================================== */
+.feature-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-blue);
+}
+
+.card-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ========================================
+   技能标签样式
+======================================== */
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    margin: 4px;
+    background: linear-gradient(135deg, rgba(30, 136, 229, 0.1) 0%, rgba(124, 77, 255, 0.1) 100%);
+    border: 1px solid var(--primary-blue);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    background: var(--primary-gradient);
+    color: white;
+    transform: scale(1.05);
+}
+
+.skill-tag-hard {
+    background: linear-gradient(135deg, rgba(30, 136, 229, 0.1) 0%, rgba(30, 136, 229, 0.2) 100%);
+    border-color: #1E88E5;
+    color: #1E88E5;
+}
+
+.skill-tag-soft {
+    background: linear-gradient(135deg, rgba(124, 77, 255, 0.1) 0%, rgba(124, 77, 255, 0.2) 100%);
+    border-color: #7C4DFF;
+    color: #7C4DFF;
+}
+
+/* ========================================
+   HR黑话翻译卡片
+======================================== */
+.jargon-card {
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
+    border-left: 4px solid #FFA726;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 12px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.jargon-card .jargon-term {
+    font-weight: 600;
+    color: #E65100;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.jargon-card .jargon-translation {
+    color: #BF360C;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   差距分析样式
+======================================== */
+.gap-item {
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+    border-left: 4px solid #E53935;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.gap-item .gap-skill {
+    font-weight: 600;
+    color: #C62828;
+    font-size: 16px;
+}
+
+.gap-item .gap-desc {
+    color: #8E0000;
+    font-size: 14px;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.gap-time-card {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    border: 2px solid #43A047;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.gap-time-card .time-label {
+    font-size: 14px;
+    color: #2E7D32;
+}
+
+.gap-time-card .time-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1B5E20;
+    margin-top: 4px;
+}
+
+/* ========================================
+   时间轴样式
+======================================== */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-gradient);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.timeline-item .step-title {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.timeline-item .step-content {
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   优先级标签
+======================================== */
+.priority-high {
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+    color: #C62828;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #E57373;
+}
+
+.priority-medium {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    color: #EF6C00;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #FFB74D;
+}
+
+.priority-low {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    color: #2E7D32;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #81C784;
+}
+
+/* ========================================
+   资源链接卡片
+======================================== */
+.resource-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 8px 0;
+    transition: all 0.2s ease;
+}
+
+.resource-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
+}
+
+.resource-card .resource-title {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.resource-card .resource-link {
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.resource-card .resource-link:hover {
+    color: var(--primary-purple);
+}
+
+/* ========================================
+   面试评分样式
+======================================== */
+.score-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.score-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-light) 100%);
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.score-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.score-card .score-value {
+    font-size: 32px;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.score-card .score-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.score-card.total {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+.score-card.total .score-value {
+    color: white !important;
+    -webkit-text-fill-color: white;
+}
+
+.score-card.total .score-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   敢投指数仪表盘
+======================================== */
+.confidence-meter {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    border: 2px solid var(--primary-blue);
+}
+
+.confidence-meter .meter-value {
+    font-size: 56px;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.confidence-meter .meter-label {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+/* ========================================
+   鼓励语气泡
+======================================== */
+.cheer-bubble {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 2px solid #FF9800;
+    border-radius: 24px;
+    padding: 24px;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: var(--shadow-md);
+}
+
+.cheer-bubble::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 60px;
+    color: #FF9800;
+    opacity: 0.3;
+    font-family: serif;
+}
+
+.cheer-bubble .cheer-text {
+    font-size: 18px;
+    color: #E65100;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ========================================
+   亮点和建议样式
+======================================== */
+.highlight-section {
+    background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.highlight-section h4 {
+    color: #6A1B9A;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.highlight-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.highlight-section li {
+    color: #4A148C;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.advice-section {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.advice-section h4 {
+    color: #1565C0;
+    margin: 0 0 12px 0;
+    font-size: 16px;
+}
+
+.advice-section p {
+    color: #0D47A1;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ========================================
+   按钮样式增强
+======================================== */
+st.button[kind="primary"] {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    padding: 12px 28px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+st.button[kind="primary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ========================================
+   输入框样式
+======================================== */
+st.text_area, st.text_input {
+    border-radius: var(--radius-md) !important;
+    border: 2px solid var(--border-light) !important;
+    transition: all 0.3s ease !important;
+}
+
+st.text_area:focus, st.text_input:focus {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2) !important;
+}
+
+/* ========================================
+   提示信息样式
+======================================== */
+st.success {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%) !important;
+    border: 2px solid #43A047 !important;
+    border-radius: var(--radius-md) !important;
+}
+
+st.warning {
+    background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%) !important;
+    border: 2px solid #FFB300 !important;
+    border-radius: var(--radius-md) !important;
+}
+
+st.error {
+    background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%) !important;
+    border: 2px solid #E53935 !important;
+    border-radius: var(--radius-md) !important;
+}
+
+st.info {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%) !important;
+    border: 2px solid #1E88E5 !important;
+    border-radius: var(--radius-md) !important;
+}
+
+/* ========================================
+   分隔线样式
+======================================== */
+hr {
+    border: none;
+    height: 2px;
+    background: var(--primary-gradient);
+    margin: 24px 0;
+    border-radius: 1px;
+}
+
+/* ========================================
+   侧边栏Logo区域
+======================================== */
+.sidebar-logo {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.sidebar-logo .logo-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.sidebar-logo .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FFFFFF 0%, #BBDEFB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sidebar-logo .logo-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 4px;
+}
+
+/* ========================================
+   导航按钮样式
+======================================== */
+.nav-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    margin: 8px 0;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+}
+
+.nav-button.active {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: white;
+}
+
+.nav-button .nav-icon {
+    font-size: 20px;
+}
+
+.nav-button .nav-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ========================================
+   空状态样式
+======================================== */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state .empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-state .empty-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.empty-state .empty-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   响应式适配
+======================================== */
+@media (max-width: 768px) {
+    .feature-card {
+        padding: 16px;
+    }
+    
+    .score-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .score-card .score-value {
+        font-size: 24px;
+    }
+    
+    .confidence-meter .meter-value {
+        font-size: 40px;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-item {
+        padding: 12px;
+    }
+}
+
+/* ========================================
+   动画效果
+======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   进度条样式
+======================================== */
+st.progress > div {
+    background: var(--primary-gradient) !important;
+    border-radius: 4px;
+}
+
+st.progress {
+    border-radius: 4px;
+    background: var(--border-light) !important;
+    height: 8px !important;
+}

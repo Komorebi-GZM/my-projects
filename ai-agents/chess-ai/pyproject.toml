@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess_ai"
+version = "0.1.2"
+description = "中国象棋AI对弈工具"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.0",
+    "langgraph>=1.2",
+    "langchain-core>=1.4",
+    "pygame>=2.6",
+    "httpx",
+    "colorlog",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.3",
+    "isort>=5.0",
+    "mypy>=1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+# Lint 规则: E/F (error/flake8), W (warnings), I (isort), C4 (flake8-comprehensions),
+# N (pep8-naming), UP (pyupgrade), RUF (ruff-specific), PT (pytest-style)
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "C4", "N", "UP", "RUF", "PT"]
+ignore = [
+    "E501",   # line too long (由 formatter 处理)
+    "N801",   # lowercase function name (允许装饰器风格)
+    "RUF001", # ambiguous unicode in strings (中文全角标点)
+    "RUF002", # ambiguous unicode in docstrings (中文全角字符)
+    "RUF003", # ambiguous unicode in comments (中文全角字符)
+    "PT011",  # pytest.raises too broad (测试中使用通用异常可接受)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["chess_ai"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

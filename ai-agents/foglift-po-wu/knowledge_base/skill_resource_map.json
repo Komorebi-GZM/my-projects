@@ -1,0 +1,436 @@
+{
+  "mappings": {
+    "Python": [
+      {
+        "name": "Python官方文档",
+        "url": "https://docs.python.org/zh-cn/3/"
+      },
+      {
+        "name": "Real Python - 实战教程",
+        "url": "https://realpython.com/"
+      },
+      {
+        "name": "Python Cookbook（食谱）",
+        "url": "https://python3-cookbook.readthedocs.io/zh-cn/latest/"
+      }
+    ],
+    "LangChain": [
+      {
+        "name": "LangChain官方文档",
+        "url": "https://python.langchain.com/docs/introduction/"
+      },
+      {
+        "name": "LangChain GitHub",
+        "url": "https://github.com/langchain-ai/langchain"
+      },
+      {
+        "name": "LangChain中文社区",
+        "url": "https://www.langchain.asia/"
+      }
+    ],
+    "LangGraph": [
+      {
+        "name": "LangGraph官方文档",
+        "url": "https://langchain-ai.github.io/langgraph/"
+      },
+      {
+        "name": "LangGraph教程",
+        "url": "https://github.com/langchain-ai/langgraph/tree/main/examples"
+      }
+    ],
+    "OpenClaw": [
+      {
+        "name": "OpenClaw GitHub",
+        "url": "https://github.com/OpenClaw"
+      }
+    ],
+    "RAG": [
+      {
+        "name": "LlamaIndex官方文档（RAG最佳实践）",
+        "url": "https://docs.llamaindex.ai/en/stable/"
+      },
+      {
+        "name": "向量数据库选型对比",
+        "url": "https://superlinked.com/vector-db-comparison"
+      },
+      {
+        "name": "RAG综述论文",
+        "url": "https://arxiv.org/abs/2312.10997"
+      }
+    ],
+    "PyTorch": [
+      {
+        "name": "PyTorch官方教程",
+        "url": "https://pytorch.org/tutorials/"
+      },
+      {
+        "name": "动手学深度学习（d2l.ai）",
+        "url": "https://zh.d2l.ai/"
+      },
+      {
+        "name": "PyTorch中文文档",
+        "url": "https://pytorch-cn.readthedocs.io/"
+      }
+    ],
+    "Prompt工程": [
+      {
+        "name": "Prompt工程指南（中文）",
+        "url": "https://www.promptingguide.ai/zh"
+      },
+      {
+        "name": "OpenAI Cookbook",
+        "url": "https://cookbook.openai.com/"
+      },
+      {
+        "name": "Anthropic Prompt库",
+        "url": "https://docs.anthropic.com/en/prompt-library/library"
+      }
+    ],
+    "Prompt": [
+      {
+        "name": "Prompt工程指南（中文）",
+        "url": "https://www.promptingguide.ai/zh"
+      },
+      {
+        "name": "OpenAI Cookbook",
+        "url": "https://cookbook.openai.com/"
+      }
+    ],
+    "Agent": [
+      {
+        "name": "Lilian Weng - Agent设计综述",
+        "url": "https://lilianweng.github.io/posts/2023-06-23-agent/"
+      },
+      {
+        "name": "AutoGen多智能体框架",
+        "url": "https://github.com/microsoft/autogen"
+      },
+      {
+        "name": "OpenAI Agents SDK文档",
+        "url": "https://openai.github.io/openai-agents-python/"
+      }
+    ],
+    "SQL": [
+      {
+        "name": "SQL必知必会（在线版）",
+        "url": "https://www.w3schools.com/sql/"
+      },
+      {
+        "name": "Mode SQL教程",
+        "url": "https://mode.com/sql-tutorial/"
+      },
+      {
+        "name": "LeetCode数据库题库",
+        "url": "https://leetcode.cn/problemset/database/"
+      }
+    ],
+    "MySQL": [
+      {
+        "name": "MySQL官方文档",
+        "url": "https://dev.mysql.com/doc/"
+      },
+      {
+        "name": "MySQL教程（中文）",
+        "url": "https://www.runoob.com/mysql/mysql-tutorial.html"
+      }
+    ],
+    "PostgreSQL": [
+      {
+        "name": "PostgreSQL官方文档",
+        "url": "https://www.postgresql.org/docs/"
+      },
+      {
+        "name": "PostgreSQL教程（中文）",
+        "url": "https://www.runoob.com/postgresql/postgresql-tutorial.html"
+      }
+    ],
+    "MongoDB": [
+      {
+        "name": "MongoDB官方文档",
+        "url": "https://www.mongodb.com/docs/"
+      },
+      {
+        "name": "MongoDB大学免费课程",
+        "url": "https://learn.mongodb.com/"
+      }
+    ],
+    "C++": [
+      {
+        "name": "cppreference.com（C++参考手册）",
+        "url": "https://zh.cppreference.com/"
+      },
+      {
+        "name": "C++ Primer中文版配套资料",
+        "url": "https://github.com/imzlp/CPP-Primer-5th-Notes"
+      },
+      {
+        "name": "LeetCode C++题解",
+        "url": "https://leetcode.cn/problemset/all/?topicSlugs=cpp"
+      }
+    ],
+    "Golang": [
+      {
+        "name": "Go官方文档",
+        "url": "https://go.dev/doc/"
+      },
+      {
+        "name": "Go by Example（中文）",
+        "url": "https://gobyexample-cn.github.io/"
+      },
+      {
+        "name": "Go语言圣经",
+        "url": "https://gopl.io/"
+      }
+    ],
+    "Java": [
+      {
+        "name": "Java官方文档",
+        "url": "https://docs.oracle.com/javase/tutorial/"
+      },
+      {
+        "name": "廖雪峰Java教程",
+        "url": "https://www.liaoxuefeng.com/wiki/1252599548343744"
+      },
+      {
+        "name": "JavaGuide面试题",
+        "url": "https://javaguide.cn/"
+      }
+    ],
+    "大模型": [
+      {
+        "name": "HuggingFace课程（免费）",
+        "url": "https://huggingface.co/learn"
+      },
+      {
+        "name": "大模型技术全景图（李沐）",
+        "url": "https://courses.d2l.ai/zh-v2/"
+      },
+      {
+        "name": "OpenAI技术博客",
+        "url": "https://openai.com/research"
+      }
+    ],
+    "LLM": [
+      {
+        "name": "HuggingFace LLM课程",
+        "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+      },
+      {
+        "name": "LLM可视化工具",
+        "url": "https://bbycroft.net/llm"
+      },
+      {
+        "name": "大模型综述论文",
+        "url": "https://arxiv.org/abs/2303.18223"
+      }
+    ],
+    "深度学习": [
+      {
+        "name": "动手学深度学习（d2l.ai）",
+        "url": "https://zh.d2l.ai/"
+      },
+      {
+        "name": "吴恩达深度学习课程",
+        "url": "https://www.deeplearning.ai/courses/"
+      },
+      {
+        "name": "Fast.ai实战课程",
+        "url": "https://www.fast.ai/"
+      }
+    ],
+    "机器学习": [
+      {
+        "name": "周志华《机器学习》（西瓜书）配套笔记",
+        "url": "https://github.com/datawhalechina/pumpkin-book"
+      },
+      {
+        "name": "吴恩达机器学习课程",
+        "url": "https://www.coursera.org/specializations/machine-learning-introduction"
+      },
+      {
+        "name": "sklearn官方文档",
+        "url": "https://scikit-learn.org/stable/user_guide.html"
+      }
+    ],
+    "TensorFlow": [
+      {
+        "name": "TensorFlow官方教程",
+        "url": "https://www.tensorflow.org/tutorials"
+      },
+      {
+        "name": "TensorFlow中文文档",
+        "url": "https://tensorflow.google.cn/guide"
+      }
+    ],
+    "NLP": [
+      {
+        "name": "HuggingFace NLP课程",
+        "url": "https://huggingface.co/learn/nlp-course/zh-CN/chapter1/1"
+      },
+      {
+        "name": "CS224N - Stanford NLP课程",
+        "url": "https://web.stanford.edu/class/cs224n/"
+      },
+      {
+        "name": "NLTK官方文档",
+        "url": "https://www.nltk.org/"
+      }
+    ],
+    "CV": [
+      {
+        "name": "CS231n - Stanford计算机视觉课程",
+        "url": "http://cs231n.stanford.edu/"
+      },
+      {
+        "name": "OpenCV官方教程",
+        "url": "https://docs.opencv.org/4.x/d9/df8/tutorial_root.html"
+      },
+      {
+        "name": "动手学计算机视觉",
+        "url": "https://github.com/d2l-ai/d2l-zh"
+      }
+    ],
+    "多模态": [
+      {
+        "name": "多模态大模型综述",
+        "url": "https://arxiv.org/abs/2306.13549"
+      },
+      {
+        "name": "HuggingFace多模态模型",
+        "url": "https://huggingface.co/models?pipeline_tag=image-to-text"
+      },
+      {
+        "name": "OpenAI Vision API文档",
+        "url": "https://platform.openai.com/docs/guides/vision"
+      }
+    ],
+    "MCP": [
+      {
+        "name": "MCP官方文档",
+        "url": "https://modelcontextprotocol.io/introduction"
+      },
+      {
+        "name": "MCP服务器列表",
+        "url": "https://github.com/modelcontextprotocol/servers"
+      },
+      {
+        "name": "Anthropic MCP教程",
+        "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp"
+      }
+    ],
+    "数据分析": [
+      {
+        "name": "Pandas官方文档",
+        "url": "https://pandas.pydata.org/docs/"
+      },
+      {
+        "name": "Kaggle数据分析教程",
+        "url": "https://www.kaggle.com/learn/pandas"
+      },
+      {
+        "name": "DataWhale开源教程",
+        "url": "https://github.com/datawhalechina"
+      }
+    ],
+    "ETL": [
+      {
+        "name": "Apache Airflow文档",
+        "url": "https://airflow.apache.org/docs/"
+      },
+      {
+        "name": "dbt数据转换工具",
+        "url": "https://docs.getdbt.com/"
+      },
+      {
+        "name": "Spark官方教程",
+        "url": "https://spark.apache.org/docs/latest/"
+      }
+    ],
+    "算法": [
+      {
+        "name": "LeetCode中文",
+        "url": "https://leetcode.cn/"
+      },
+      {
+        "name": "代码随想录（算法刷题指南）",
+        "url": "https://programmercarl.com/"
+      },
+      {
+        "name": "算法可视化工具",
+        "url": "https://visualgo.net/zh"
+      }
+    ],
+    "向量数据库": [
+      {
+        "name": "Milvus官方文档",
+        "url": "https://milvus.io/docs"
+      },
+      {
+        "name": "Chroma文档",
+        "url": "https://docs.trychroma.com/"
+      },
+      {
+        "name": "向量数据库对比报告",
+        "url": "https://superlinked.com/vector-db-comparison"
+      }
+    ],
+    "知识库": [
+      {
+        "name": "Dify知识库文档",
+        "url": "https://docs.dify.ai/zh-hans/guides/knowledge-base"
+      },
+      {
+        "name": "LlamaIndex知识库构建",
+        "url": "https://docs.llamaindex.ai/en/stable/understanding/rag/"
+      },
+      {
+        "name": "AnythingLLM（本地知识库）",
+        "url": "https://github.com/Mintplex-Labs/anything-llm"
+      }
+    ],
+    "React": [
+      {
+        "name": "React官方文档（中文）",
+        "url": "https://zh-hans.react.dev/"
+      },
+      {
+        "name": "React入门教程",
+        "url": "https://react.dev/learn"
+      }
+    ],
+    "Vue": [
+      {
+        "name": "Vue.js官方文档（中文）",
+        "url": "https://cn.vuejs.org/"
+      },
+      {
+        "name": "Vue3快速上手",
+        "url": "https://cn.vuejs.org/guide/quick-start.html"
+      }
+    ],
+    "Node.js": [
+      {
+        "name": "Node.js官方文档",
+        "url": "https://nodejs.org/zh-cn/docs/"
+      },
+      {
+        "name": "Node.js中文网",
+        "url": "https://www.nodejs.com.cn/"
+      }
+    ],
+    "评测": [
+      {
+        "name": "MMLU基准测试",
+        "url": "https://paperswithcode.com/sota/multi-task-language-understanding-on-mmlu"
+      },
+      {
+        "name": "OpenCompass评测平台",
+        "url": "https://opencompass.org.cn/"
+      },
+      {
+        "name": "LLM-Eval综合评测",
+        "url": "https://github.com/openai/evals"
+      }
+    ]
+  }
+}

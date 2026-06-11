@@ -1,0 +1,41 @@
+[tool.pytest.ini_options]
+pythonpath = [".", "maitian_agent", "demo"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # function calls in argument defaults (common in LangChain)
+    "B904",  # raise from err (逐步迁移)
+    "B007",  # loop variable unused (逐步迁移)
+    "B006",  # mutable default in function arg (逐步迁移)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["maitian_agent"]
+
+[tool.coverage.run]
+source = ["maitian_agent"]
+omit = [
+    "maitian_agent/**/__init__.py",
+    "maitian_agent/cli.py",
+    "maitian_agent/frontend/*",
+    "maitian_agent/tools/ocr.py",
+    "maitian_agent/tools/file.py",
+]
+
+[tool.coverage.report]
+fail_under = 75
+show_missing = true
+skip_empty = true

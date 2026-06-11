@@ -1,0 +1,18 @@
+[project]
+name = "campus-storage"
+version = "0.1.0"
+description = "校园物品暂存平台 — WeChat Mini Program + CloudBase serverless app"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.0",
+    "apscheduler>=3.10",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100

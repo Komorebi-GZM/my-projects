@@ -1,0 +1,103 @@
+<!--pages/order/list.wxml-->
+<view class="container">
+  <!-- Tab切换 -->
+  <view class="tab-bar">
+    <view
+      class="tab-item {{activeTab === 'all' ? 'active' : ''}}"
+      bindtap="switchTab"
+      data-tab="all"
+    >
+      全部
+    </view>
+    <view
+      class="tab-item {{activeTab === 'active' ? 'active' : ''}}"
+      bindtap="switchTab"
+      data-tab="active"
+    >
+      进行中
+    </view>
+    <view
+      class="tab-item {{activeTab === 'completed' ? 'active' : ''}}"
+      bindtap="switchTab"
+      data-tab="completed"
+    >
+      已完成
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view
+    class="order-scroll"
+    scroll-y
+    refresher-enabled
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onRefresh"
+    bindscrolltolower="onLoadMore"
+  >
+    <!-- 加载中 -->
+    <view class="loading-state" wx:if="{{loading}}">
+      <view class="spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+
+    <!-- 订单列表 -->
+    <view class="order-list" wx:if="{{orders.length > 0}}">
+      <view
+        class="order-card"
+        wx:for="{{orders}}"
+        wx:key="_id"
+        bindtap="goToDetail"
+        data-id="{{item._id}}"
+      >
+        <view class="order-header">
+          <text class="order-no">{{item.orderNo}}</text>
+          <view class="tag tag-{{item.statusStyle}}">{{item.statusText}}</view>
+        </view>
+
+        <view class="order-body">
+          <view class="order-info-row">
+            <text class="info-label">物品类型</text>
+            <text class="info-value">{{item.itemTypeText}}</text>
+          </view>
+          <view class="order-info-row">
+            <text class="info-label">所在城市</text>
+            <text class="info-value">{{item.city}}</text>
+          </view>
+          <view class="order-info-row">
+            <text class="info-label">创建时间</text>
+            <text class="info-value">{{item.createTime}}</text>
+          </view>
+        </view>
+
+        <view class="order-footer">
+          <text class="order-amount">¥{{item.amount.totalFee || 0}}</text>
+          <view
+            class="action-btn action-{{item.statusStyle}}"
+            wx:if="{{item.showAction}}"
+            catchtap="onAction"
+            data-item="{{item}}"
+          >
+            {{item.actionText}}
+          </view>
+        </view>
+      </view>
+
+      <!-- 加载更多 -->
+      <view class="load-more" wx:if="{{loadingMore}}">
+        <view class="spinner small"></view>
+        <text>加载中...</text>
+      </view>
+      <view class="no-more" wx:if="{{!hasMore && orders.length > 0}}">
+        <text>没有更多了</text>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && orders.length === 0}}">
+      <text class="empty-icon">📭</text>
+      <text class="empty-title">暂无订单</text>
+      <text class="empty-desc">点击下方按钮去下单吧</text>
+      <view class="btn btn-primary" bindtap="goToCreate">去下单</view>
+    </view>
+  </scroll-view>
+</view>

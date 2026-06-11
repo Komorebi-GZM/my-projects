@@ -1,0 +1,193 @@
+/**pages/order/list.wxss**/
+
+/* Tab切换 */
+.tab-bar {
+  display: flex;
+  background: var(--card-bg);
+  border-radius: 16rpx;
+  padding: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  border-radius: 8rpx;
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* 滚动区域 */
+.order-scroll {
+  flex: 1;
+  height: calc(100vh - 200rpx);
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80rpx 0;
+}
+
+.spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner.small {
+  width: 36rpx;
+  height: 36rpx;
+  border-width: 3rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+/* 订单列表 */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.order-card {
+  background: var(--card-bg);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.order-no {
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+.order-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.order-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: var(--text-primary);
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2rpx solid var(--border-color);
+  padding-top: 24rpx;
+}
+
+.order-amount {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.action-btn {
+  padding: 16rpx 32rpx;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+}
+
+.action-btn.action-warning {
+  background: #FF9800;
+  color: #FFFFFF;
+}
+
+.action-btn.action-primary {
+  background: var(--primary-color);
+  color: #FFFFFF;
+}
+
+/* 加载更多 */
+.load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  padding: 40rpx;
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+.no-more {
+  text-align: center;
+  padding: 40rpx;
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 160rpx;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 16rpx;
+}
+
+.empty-desc {
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 32rpx;
+}
+
+.empty-state .btn {
+  width: 320rpx;
+}

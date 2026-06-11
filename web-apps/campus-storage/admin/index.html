@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园物品暂存 - 运营端</title>
+    <link rel="stylesheet" href="static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">📦</span>
+                <span class="logo-text">运营端</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="orders">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">订单管理</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="warehouses">
+                    <span class="nav-icon">🏪</span>
+                    <span class="nav-text">仓库管理</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">数据统计</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">系统设置</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部栏 -->
+            <header class="header">
+                <h1 class="page-title" id="page-title">订单管理</h1>
+                <div class="header-actions">
+                    <span class="admin-name">管理员</span>
+                    <button class="btn btn-default" onclick="logout()">退出</button>
+                </div>
+            </header>
+
+            <!-- 订单管理面板 -->
+            <div class="panel" id="orders-panel">
+                <!-- 统计卡片 -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #E6F7FF; color: #1890FF;">📦</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="stat-total">0</div>
+                            <div class="stat-label">总订单</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #FFF7E6; color: #FA8C16;">⏳</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="stat-pending">0</div>
+                            <div class="stat-label">待处理</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #E6FFFB; color: #2396AB;">🚚</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="stat-delivering">0</div>
+                            <div class="stat-label">配送中</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #F6FFED; color: #52C41A;">✅</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="stat-completed">0</div>
+                            <div class="stat-label">已完成</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 筛选栏 -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label>状态：</label>
+                        <select id="filter-status" onchange="applyFilters()">
+                            <option value="">全部</option>
+                            <option value="PENDING">待处理</option>
+                            <option value="COLLECTED">已揽收</option>
+                            <option value="TRANSIT">运输中</option>
+                            <option value="STORED">已入库</option>
+                            <option value="DELIVERING">配送中</option>
+                            <option value="COMPLETED">已完成</option>
+                            <option value="CANCELLED">已取消</option>
+                            <option value="EXCEPTION">异常</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>城市：</label>
+                        <select id="filter-city" onchange="applyFilters()">
+                            <option value="">全部</option>
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="广州">广州</option>
+                            <option value="深圳">深圳</option>
+                            <option value="杭州">杭州</option>
+                            <option value="成都">成都</option>
+                            <option value="武汉">武汉</option>
+                            <option value="西安">西安</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>搜索：</label>
+                        <input type="text" id="filter-search" placeholder="订单号/用户ID" onkeyup="applyFilters()">
+                    </div>
+                    <button class="btn btn-primary" onclick="refreshOrders()">🔄 刷新</button>
+                </div>
+
+                <!-- 订单表格 -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>订单号</th>
+                                <th>用户信息</th>
+                                <th>物品类型</th>
+                                <th>城市/仓库</th>
+                                <th>状态</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-body">
+                            <!-- 动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 分页 -->
+                <div class="pagination">
+                    <button class="btn btn-default" onclick="changePage(-1)">上一页</button>
+                    <span class="page-info">第 <span id="current-page">1</span> 页</span>
+                    <button class="btn btn-default" onclick="changePage(1)">下一页</button>
+                </div>
+            </div>
+
+            <!-- 仓库管理面板 -->
+            <div class="panel" id="warehouses-panel" style="display: none;">
+                <!-- 仓库统计卡片 -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #E6F7FF; color: #1890FF;">🏪</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="wh-stat-total">0</div>
+                            <div class="stat-label">仓库总数</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #F6FFED; color: #52C41A;">✅</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="wh-stat-active">0</div>
+                            <div class="stat-label">正常运营</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #FFF7E6; color: #FA8C16;">📦</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="wh-stat-used">0%</div>
+                            <div class="stat-label">平均使用率</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #FFF1F0; color: #F5222D;">⚠️</div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="wh-stat-warning">0</div>
+                            <div class="stat-label">容量紧张</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 筛选栏 -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label>城市：</label>
+                        <select id="wh-filter-city" onchange="applyWarehouseFilters()">
+                            <option value="">全部</option>
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="广州">广州</option>
+                            <option value="深圳">深圳</option>
+                            <option value="杭州">杭州</option>
+                            <option value="成都">成都</option>
+                            <option value="武汉">武汉</option>
+                            <option value="西安">西安</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>状态：</label>
+                        <select id="wh-filter-status" onchange="applyWarehouseFilters()">
+                            <option value="">全部</option>
+                            <option value="ACTIVE">正常</option>
+                            <option value="INACTIVE">停用</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="refreshWarehouses()">🔄 刷新</button>
+                </div>
+
+                <!-- 仓库表格 -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>仓库ID</th>
+                                <th>仓库名称</th>
+                                <th>城市</th>
+                                <th>地址</th>
+                                <th>容量</th>
+                                <th>已用</th>
+                                <th>使用率</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody id="warehouse-table-body">
+                            <!-- 动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 状态变更弹窗 -->
+    <div class="modal" id="status-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>变更订单状态</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>订单号：<span id="modal-order-no"></span></p>
+                <div class="form-group">
+                    <label>新状态：</label>
+                    <select id="new-status">
+                        <option value="PENDING">待处理</option>
+                        <option value="COLLECTED">已揽收</option>
+                        <option value="TRANSIT">运输中</option>
+                        <option value="STORED">已入库</option>
+                        <option value="DELIVERING">配送中</option>
+                        <option value="COMPLETED">已完成</option>
+                        <option value="CANCELLED">已取消</option>
+                        <option value="EXCEPTION">异常</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>备注（选填）：</label>
+                    <textarea id="status-remark" rows="3" placeholder="请输入操作备注"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" onclick="closeModal()">取消</button>
+                <button class="btn btn-primary" onclick="confirmStatusChange()">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 订单详情弹窗 -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>订单详情</h3>
+                <button class="modal-close" onclick="closeDetailModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="detail-content">
+                <!-- 动态生成 -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" onclick="closeDetailModal()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/admin.js"></script>
+</body>
+</html>

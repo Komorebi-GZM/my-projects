@@ -1,0 +1,11 @@
+.git/
+.gitignore
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+docs/
+*.md
+.opencode/
+.workbuddy/

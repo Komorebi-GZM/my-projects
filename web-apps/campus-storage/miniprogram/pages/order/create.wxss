@@ -1,0 +1,191 @@
+/**pages/order/create.wxss**/
+
+/* 城市选择器 */
+.city-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.city-item {
+  padding: 16rpx 32rpx;
+  border-radius: 8rpx;
+  background: #F5F5F5;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.city-item.active {
+  background: var(--primary-color);
+  color: #FFFFFF;
+}
+
+/* 物品类型选择器 */
+.type-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24rpx;
+}
+
+.type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32rpx 16rpx;
+  border-radius: 16rpx;
+  background: #F5F5F5;
+  border: 2rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.type-item.active {
+  background: #E6F7FF;
+  border-color: var(--primary-color);
+}
+
+.type-icon {
+  font-size: 64rpx;
+  margin-bottom: 16rpx;
+}
+
+.type-name {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.type-item.active .type-name {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* 仓库列表 */
+.warehouse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.warehouse-item {
+  padding: 24rpx;
+  border-radius: 12rpx;
+  background: #F5F5F5;
+  border: 2rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.warehouse-item.active {
+  background: #E6F7FF;
+  border-color: var(--primary-color);
+}
+
+.warehouse-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.warehouse-address {
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+}
+
+.loading-state {
+  padding: 32rpx;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+.empty-hint {
+  padding: 32rpx;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 26rpx;
+}
+
+/* 费用预估 */
+.fee-card {
+  margin-bottom: 160rpx;
+}
+
+.fee-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.fee-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.fee-value {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.fee-total .fee-label {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.fee-total .fee-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* 底部栏 */
+.footer-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: var(--card-bg);
+  border-top: 2rpx solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+
+.fee-preview {
+  display: flex;
+  align-items: baseline;
+  gap: 8rpx;
+}
+
+.fee-preview-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.fee-preview-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.footer-bar .btn {
+  width: 240rpx;
+  flex-shrink: 0;
+}
+
+.footer-bar .btn.disabled {
+  background: #CCCCCC;
+  color: #999999;
+}

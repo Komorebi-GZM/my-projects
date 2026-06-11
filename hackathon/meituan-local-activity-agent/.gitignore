@@ -1,0 +1,28 @@
+# OS/editor noise
+.DS_Store
+
+# Python runtime/cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Logs and generated local state
+*.log
+.codegraph/
+.learnings/
+.opencode/
+.workbuddy/
+
+# Agent/private planning artifacts
+docs/superpowers/

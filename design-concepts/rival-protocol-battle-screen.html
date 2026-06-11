@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rival Protocol — Battle</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+:root {
+  --bg: #1A1A2E;
+  --surface: #23233A;
+  --surface-light: #2D2E4A;
+  --fg: #E0E0E0;
+  --muted: #8A8AA0;
+  --accent: #E94560;
+  --accent-glow: rgba(233,69,96,.35);
+  --border: #6C63FF;
+  --border-glow: rgba(108,99,255,.35);
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --danger: #EF4444;
+
+  --ease-lusion: cubic-bezier(.4,0,.1,1);
+  --ease-sharp: cubic-bezier(.16,1,.3,1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+/* ─── Top Bar ─── */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  min-height: 48px;
+}
+.turn-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.turn-label span { color: var(--border); font-weight: 700; }
+.energy-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.energy-icon {
+  width: 28px; height: 28px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.energy-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+  line-height: 1;
+}
+.energy-denom {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  align-self: flex-end;
+  padding-bottom: 2px;
+}
+.deck-info {
+  font-size: 12px;
+  color: var(--muted);
+}
+.deck-info span { color: var(--fg); font-weight: 700; font-family: 'Orbitron', sans-serif; }
+/* ─── Battle Arena ─── */
+.battle-arena {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  position: relative;
+  min-height: 0;
+}
+.arena-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 800px;
+}
+/* ─── Combatant ─── */
+.combatant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.avatar-frame {
+  width: 120px; height: 120px;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow .4s var(--ease-lusion);
+}
+.avatar-frame.enemy {
+  border-color: var(--accent);
+}
+.avatar-frame.hit {
+  animation: hitShake .4s var(--ease-lusion);
+}
+@keyframes hitShake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-8px) rotate(-2deg); }
+  50% { transform: translateX(8px) rotate(2deg); }
+  75% { transform: translateX(-4px) rotate(-1deg); }
+}
+.avatar-svg { width: 65%; height: 65%; }
+.avatar-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.hp-group { width: 160px; position: relative; }
+.hp-track {
+  height: 18px;
+  background: var(--surface);
+  border: 1px solid var(--muted);
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+}
+.hp-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width .6s var(--ease-lusion);
+  position: relative;
+}
+.hp-fill.player { background: var(--accent); }
+.hp-fill.enemy { background: #C0392B; }
+.hp-val {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9), 0 0 6px rgba(0,0,0,.6);
+}
+.block-shield {
+  position: absolute;
+  top: -8px; right: -8px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--border);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 0 10px var(--border-glow);
+  transition: transform .3s var(--ease-lusion), opacity .3s var(--ease-lusion);
+}
+.block-shield.hide { transform: scale(0); opacity: 0; }
+.state-row {
+  display: flex;
+  gap: 4px;
+  min-height: 24px;
+}
+.state-badge {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--surface-light);
+  border: 1px solid var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  position: relative;
+}
+.state-badge .qty {
+  position: absolute;
+  bottom: -3px; right: -3px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  min-width: 14px; height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ─── VS ─── */
+.vs-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+  animation: vsGlow 2.5s ease-in-out infinite;
+}
+@keyframes vsGlow {
+  0%,100% { opacity: 1; text-shadow: 0 0 20px var(--accent-glow); }
+  50% { opacity: .65; text-shadow: 0 0 40px var(--accent-glow); }
+}
+/* ─── Floaty ─── */
+.floaty {
+  position: fixed;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 300;
+  animation: floatUp 1.2s var(--ease-sharp) forwards;
+}
+.floaty.dmg { color: var(--accent); text-shadow: 0 0 12px var(--accent-glow), 0 2px 4px rgba(0,0,0,.6); }
+.floaty.heal { color: var(--success); text-shadow: 0 0 12px rgba(74,222,128,.5); }
+.floaty.shl { color: var(--border); text-shadow: 0 0 12px var(--border-glow); }
+.floaty.crit { font-size: 40px; color: #FFD700; text-shadow: 0 0 20px rgba(255,215,0,.7); }
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0) scale(.6); }
+  20% { opacity: 1; transform: translateY(-18px) scale(1.2); }
+  40% { opacity: 1; transform: translateY(-30px) scale(1.05); }
+  100% { opacity: 0; transform: translateY(-70px) scale(.7); }
+}
+/* ─── Hand Area ─── */
+.hand-area {
+  background: linear-gradient(to top, var(--surface) 25%, transparent);
+  padding: 14px 6px 6px;
+  position: relative;
+  z-index: 2;
+}
+.hand-area::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.card-hand {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  perspective: 1000px;
+  min-height: 185px;
+}
+/* ─── Card ─── */
+.card {
+  width: 120px; height: 175px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform-origin: bottom center;
+  transition: transform .35s var(--ease-lusion), box-shadow .35s var(--ease-lusion), border-color .35s var(--ease-lusion);
+  box-shadow: 0 3px 10px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(108,99,255,.08), transparent 50%);
+  pointer-events: none;
+}
+.card:hover {
+  transform: translateY(-44px) scale(1.08);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,0,0,.45), 0 0 18px var(--border-glow);
+  z-index: 10;
+}
+.card.disabled {
+  opacity: .4;
+  filter: grayscale(.5);
+  cursor: not-allowed;
+}
+.card.disabled:hover {
+  transform: none;
+  border-color: var(--muted);
+  box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+.card.pick {
+  transform: translateY(-52px) scale(1.1);
+  border-color: var(--success);
+  box-shadow: 0 24px 48px rgba(0,0,0,.5), 0 0 24px rgba(74,222,128,.4);
+}
+.card-cost {
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 30px; height: 30px;
+  background: linear-gradient(135deg, var(--accent), #C73E52);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 2px 6px var(--accent-glow);
+  z-index: 2;
+}
+.card-ctype {
+  position: absolute;
+  top: 5px; right: 5px;
+  font-size: 8px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--surface-light);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  z-index: 2;
+}
+.card-art {
+  height: 65px;
+  margin: 34px 5px 3px;
+  background: var(--surface-light);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-art svg { width: 40px; height: 40px; }
+.card-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  padding: 3px 5px;
+  color: var(--fg);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  line-height: 1.2;
+}
+.card-effect {
+  font-size: 9px;
+  text-align: center;
+  padding: 1px 5px;
+  color: var(--muted);
+  line-height: 1.35;
+  flex: 1;
+}
+.card-effect strong { color: var(--accent); }
+.card-target {
+  display: flex;
+  justify-content: center;
+  padding: 2px 5px 5px;
+}
+.card-target span {
+  font-size: 7px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--border);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+/* ─── Action Bar ─── */
+.action-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 24px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  min-height: 48px;
+  position: relative;
+  z-index: 3;
+}
+.action-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  padding: 7px 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background .25s var(--ease-lusion), color .25s var(--ease-lusion), box-shadow .25s var(--ease-lusion);
+}
+.action-btn:hover:not(:disabled) {
+  background: var(--border);
+  color: #fff;
+  box-shadow: 0 0 10px var(--border-glow);
+}
+.action-btn:disabled { opacity: .25; cursor: not-allowed; }
+.end-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 24px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--accent), #C73E52);
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform .3s var(--ease-lusion), box-shadow .3s var(--ease-lusion);
+  box-shadow: 0 3px 12px var(--accent-glow);
+}
+.end-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px var(--accent-glow);
+}
+.end-btn:disabled {
+  background: var(--muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+/* ─── Combat Log (toggle) ─── */
+.log-toggle {
+  position: fixed;
+  bottom: 272px;
+  right: 12px;
+  z-index: 15;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background .25s var(--ease-lusion), color .25s var(--ease-lusion);
+}
+.log-toggle:hover { background: var(--border); color: #fff; }
+.log-toggle.active { background: var(--border); color: #fff; }
+.combat-log {
+  position: fixed;
+  bottom: 308px;
+  right: 12px;
+  width: 230px;
+  max-height: 145px;
+  background: rgba(26,26,46,.96);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 10px;
+  overflow-y: auto;
+  z-index: 14;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .3s var(--ease-lusion), transform .3s var(--ease-lusion);
+}
+.combat-log.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.combat-log-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--surface-light);
+}
+.log-line {
+  padding: 3px 0;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(138,138,160,.08);
+  animation: logIn .25s var(--ease-lusion);
+}
+.log-line:last-child { border-bottom: none; }
+.log-line.dmg { color: var(--accent); }
+.log-line.heal { color: var(--success); }
+.log-line.shl { color: var(--border); }
+.log-line.turn { color: var(--warning); }
+@keyframes logIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .arena-grid { gap: 24px; }
+  .avatar-frame { width: 90px; height: 90px; }
+  .hp-group { width: 120px; }
+  .vs-badge { font-size: 22px; }
+  .card { width: 100px; height: 150px; }
+  .card-hand { gap: 4px; }
+  .combat-log, .log-toggle { display: none; }
+}
+@media (max-width: 480px) {
+  .top-bar { padding: 6px 12px; }
+  .energy-num { font-size: 20px; }
+  .arena-grid { gap: 16px; }
+  .avatar-frame { width: 70px; height: 70px; }
+  .hp-group { width: 90px; }
+  .card { width: 80px; height: 125px; }
+  .card-cost { width: 24px; height: 24px; font-size: 12px; }
+  .card-art { height: 48px; margin-top: 24px; }
+  .card-name { font-size: 8px; }
+  .card-effect { font-size: 7px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="turn-label">回合 <span id="turnNum">1</span></div>
+  <div class="energy-group">
+    <div class="energy-icon">⚡</div>
+    <span class="energy-num" id="energyCur">3</span>
+    <span class="energy-denom">/<span id="energyMax">3</span></span>
+  </div>
+  <div class="deck-info">牌库 <span id="deckCount">15</span></div>
+</div>
+
+<div class="battle-arena" id="battleArena">
+  <div class="arena-grid">
+    <div class="combatant" id="enemySide">
+      <div class="avatar-frame enemy" id="enemyAvatar">
+        <svg class="avatar-svg" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="35" r="25" fill="#E94560"/>
+          <path d="M25 90 Q50 60 75 90" fill="#E94560"/>
+          <circle cx="40" cy="32" r="5" fill="#1A1A2E"/>
+          <circle cx="60" cy="32" r="5" fill="#1A1A2E"/>
+          <path d="M40 45 Q50 55 60 45" stroke="#1A1A2E" stroke-width="3" fill="none"/>
+        </svg>
+        <div class="block-shield hide" id="enemyShield">0</div>
+      </div>
+      <span class="avatar-name">暗影领主</span>
+      <div class="hp-group">
+        <div class="hp-track">
+          <div class="hp-fill enemy" id="enemyHpFill" style="width:100%"></div>
+          <span class="hp-val" id="enemyHpVal">50/50</span>
+        </div>
+      </div>
+      <div class="state-row" id="enemyStates"></div>
+    </div>
+
+    <div class="vs-badge">VS</div>
+
+    <div class="combatant" id="playerSide">
+      <div class="avatar-frame" id="playerAvatar">
+        <svg class="avatar-svg" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="35" r="25" fill="#6C63FF"/>
+          <path d="M25 90 Q50 60 75 90" fill="#6C63FF"/>
+          <circle cx="40" cy="32" r="5" fill="#1A1A2E"/>
+          <circle cx="60" cy="32" r="5" fill="#1A1A2E"/>
+          <rect x="35" y="55" width="30" height="30" fill="#1A1A2E"/>
+        </svg>
+        <div class="block-shield hide" id="playerShield">0</div>
+      </div>
+      <span class="avatar-name">飙风游侠</span>
+      <div class="hp-group">
+        <div class="hp-track">
+          <div class="hp-fill player" id="playerHpFill" style="width:100%"></div>
+          <span class="hp-val" id="playerHpVal">45/45</span>
+        </div>
+      </div>
+      <div class="state-row" id="playerStates"></div>
+    </div>
+  </div>
+</div>
+
+<div class="hand-area">
+  <div class="card-hand" id="cardHand"></div>
+</div>
+
+<div class="action-bar">
+  <button class="action-btn" id="potionBtn">药水(1)</button>
+  <button class="end-btn" id="endBtn">结束回合</button>
+</div>
+
+<button class="log-toggle" id="logToggle">📋 日志</button>
+<div class="combat-log" id="combatLog">
+  <div class="combat-log-title">战斗日志</div>
+</div>
+
+<script>
+const E = (id) => document.getElementById(id);
+const logToggle = E('logToggle');
+const logPanel = E('combatLog');
+const handEl = E('cardHand');
+
+logToggle.addEventListener('click', () => {
+  logPanel.classList.toggle('open');
+  logToggle.classList.toggle('active');
+});
+
+const state = {
+  turn: 1,
+  player: { maxHp: 45, curHp: 45, energy: 3, maxEnergy: 3, block: 0 },
+  enemy: { maxHp: 50, curHp: 50, block: 0 },
+  cards: [
+    { id:1, name:'雷霆重拳', cost:2, damage:10, desc:'造成10点伤害，20%眩晕' },
+    { id:2, name:'能量灌注', cost:3, energy:3, block:2, desc:'恢复3能量，获得2护甲' },
+    { id:3, name:'闪避', cost:1, block:8, desc:'获得8点护甲' },
+    { id:4, name:'灼热火球', cost:2, damage:8, desc:'造成8点伤害，点燃目标' },
+    { id:5, name:'能量涌流', cost:3, damage:15, desc:'造成15点伤害' },
+  ],
+  hand: [0,1,2,3,4],
+  potionUsed: false,
+};
+
+function addLog(msg, type='normal') {
+  const el = document.createElement('div');
+  el.className = 'log-line ' + type;
+  el.textContent = msg;
+  logPanel.appendChild(el);
+  if (logPanel.children.length > 15) logPanel.children[1].remove();
+  logPanel.scrollTop = logPanel.scrollHeight;
+}
+
+function floaty(text, x, y, type='dmg') {
+  const el = document.createElement('div');
+  el.className = 'floaty ' + type;
+  el.textContent = text;
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1200);
+}
+
+function avatarRect(id) {
+  const r = E(id).getBoundingClientRect();
+  return { x: r.left + r.width/2, y: r.top };
+}
+
+function renderHand() {
+  handEl.innerHTML = '';
+  state.hand.forEach(idx => {
+    const c = state.cards[idx];
+    if (!c) return;
+    const canPlay = state.player.energy >= c.cost;
+    const card = document.createElement('div');
+    card.className = 'card' + (canPlay ? '' : ' disabled');
+    card.dataset.cardId = c.id;
+    card.innerHTML = `
+      <div class="card-cost">${c.cost}</div>
+      <div class="card-ctype">${c.damage ? '攻击' : c.block ? '敏捷' : '技能'}</div>
+      <div class="card-art"><svg viewBox="0 0 100 100" fill="none">
+        ${c.damage ? '<path d="M50 10 L90 40 L50 80 L10 40 Z" fill="#E94560" stroke="#C73E52" stroke-width="2"/>' : c.block ? '<path d="M30 30 L70 70 M30 70 L70 30" stroke="#4ADE80" stroke-width="3"/>' : '<circle cx="50" cy="50" r="30" stroke="#6C63FF" stroke-width="2"/><path d="M50 20 V80 M20 50 H80" stroke="#6C63FF" stroke-width="2"/>'}
+      </svg></div>
+      <div class="card-name">${c.name}</div>
+      <div class="card-effect"><strong>${c.damage ? '造成'+c.damage+'伤害' : c.block ? '获得'+c.block+'护甲' : '恢复'+c.energy+'能量'}</strong>${c.desc ? '，'+c.desc.split('，').slice(1).join('，') : ''}</div>
+      <div class="card-target"><span>${c.damage ? '敌人' : '自身'}</span></div>
+    `;
+    handEl.appendChild(card);
+  });
+}
+
+function updateUI() {
+  E('turnNum').textContent = state.turn;
+  E('energyCur').textContent = state.player.energy;
+  E('energyMax').textContent = state.player.maxEnergy;
+  E('deckCount').textContent = Math.max(0, 15 - state.hand.length);
+
+  E('playerHpVal').textContent = state.player.curHp + '/' + state.player.maxHp;
+  E('playerHpFill').style.width = (state.player.curHp / state.player.maxHp * 100) + '%';
+  E('enemyHpVal').textContent = state.enemy.curHp + '/' + state.enemy.maxHp;
+  E('enemyHpFill').style.width = (state.enemy.curHp / state.enemy.maxHp * 100) + '%';
+
+  const ps = E('playerShield');
+  ps.textContent = state.player.block || '🛡️';
+  ps.className = 'block-shield' + (state.player.block ? '' : ' hide');
+
+  const es = E('enemyShield');
+  es.textContent = state.enemy.block || '🛡️';
+  es.className = 'block-shield' + (state.enemy.block ? '' : ' hide');
+
+  E('endBtn').disabled = state.player.energy <= 0;
+  E('potionBtn').disabled = state.potionUsed || state.player.curHp >= state.player.maxHp;
+
+  renderHand();
+}
+
+function useCard(id) {
+  const card = state.cards.find(c => c.id === id);
+  if (!card) return;
+  if (state.player.energy < card.cost) { addLog('能量不足', 'dmg'); return; }
+  state.player.energy -= card.cost;
+  addLog('使用 ' + card.name);
+  const er = avatarRect('enemySide');
+  const pr = avatarRect('playerSide');
+  if (card.damage) {
+    floaty('-' + card.damage, er.x, er.y, card.damage >= 12 ? 'crit' : 'dmg');
+    state.enemy.curHp = Math.max(0, state.enemy.curHp - card.damage);
+    E('enemyAvatar').classList.add('hit');
+    setTimeout(() => E('enemyAvatar').classList.remove('hit'), 400);
+    addLog('暗影领主受到 ' + card.damage + ' 点伤害', 'dmg');
+  }
+  if (card.block) {
+    floaty('+' + card.block, pr.x, pr.y, 'shl');
+    state.player.block += card.block;
+    addLog('获得 ' + card.block + ' 护甲', 'shl');
+  }
+  if (card.energy) {
+    state.player.energy += card.energy;
+    addLog('恢复 ' + card.energy + ' 能量', 'heal');
+  }
+  updateUI();
+}
+
+function endTurn() {
+  state.turn++;
+  state.player.energy = state.player.maxEnergy;
+  addLog('━ 回合 ' + state.turn + ' ━', 'turn');
+  addLog('能量恢复至 ' + state.player.maxEnergy, 'heal');
+  updateUI();
+  setTimeout(() => {
+    const dmg = Math.floor(Math.random() * 5) + 10;
+    const pr = avatarRect('playerSide');
+    floaty('-' + dmg, pr.x, pr.y, 'dmg');
+    state.player.curHp = Math.max(0, state.player.curHp - dmg);
+    E('playerAvatar').classList.add('hit');
+    setTimeout(() => E('playerAvatar').classList.remove('hit'), 400);
+    addLog('暗影领主攻击，造成 ' + dmg + ' 点伤害', 'dmg');
+    updateUI();
+  }, 700);
+}
+
+function usePotion() {
+  if (state.potionUsed) { addLog('药水已用完'); return; }
+  if (state.player.curHp >= state.player.maxHp) { addLog('生命已满'); return; }
+  state.potionUsed = true;
+  state.player.curHp = state.player.maxHp;
+  const pr = avatarRect('playerSide');
+  floaty('+' + (state.player.maxHp - state.player.curHp + state.player.maxHp), pr.x, pr.y, 'heal');
+  addLog('使用药水，生命恢复满', 'heal');
+  updateUI();
+}
+
+handEl.addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  if (!card || card.classList.contains('disabled')) return;
+  useCard(parseInt(card.dataset.cardId, 10));
+});
+
+E('endBtn').addEventListener('click', endTurn);
+E('potionBtn').addEventListener('click', usePotion);
+
+addLog('━ 回合 1 ━', 'turn');
+addLog('你恢复了 3 点能量', 'heal');
+updateUI();
+</script>
+</body>
+</html>

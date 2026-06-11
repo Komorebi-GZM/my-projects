@@ -1,0 +1,18 @@
+{
+  "initial_position": {
+    "fen": "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w -",
+    "description": "标准初始布局"
+  },
+  "empty_board": {
+    "fen": "9/9/9/9/9/9/9/9/9/9 w -",
+    "description": "空棋盘"
+  },
+  "red_checkmate": {
+    "fen": "4k4/9/9/9/9/9/9/9/4r4/4K4 w -",
+    "description": "红方被将死场景"
+  },
+  "black_checkmate": {
+    "fen": "4k4/4c4/9/9/9/9/9/9/9/4K4 w -",
+    "description": "黑方被将死场景"
+  }
+}

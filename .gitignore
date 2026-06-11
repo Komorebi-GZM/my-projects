@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Media (large files)
+*.mp4
+*.mov
+*.avi
+
+# Logs
+*.log
+logs/
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Node
+node_modules/
+
+# Tool-specific (not project code)
+.arts/
+.codeartsdoer/
+.workbuddy/
+.trae/
+.worktrees/
+.codegraph/

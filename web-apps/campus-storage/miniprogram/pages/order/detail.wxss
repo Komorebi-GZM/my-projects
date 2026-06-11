@@ -1,0 +1,235 @@
+/**pages/order/detail.wxss**/
+
+/* 状态卡片 */
+.status-card {
+  background: linear-gradient(135deg, #1890FF, #096DD9);
+  border-radius: 16rpx;
+  padding: 48rpx 32rpx;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.status-icon {
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.status-text {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.status-desc {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 时间轴 */
+.timeline {
+  padding-left: 24rpx;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 48rpx;
+  padding-bottom: 48rpx;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 8rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #D9D9D9;
+  border: 4rpx solid #FFFFFF;
+  box-shadow: 0 0 0 2rpx #D9D9D9;
+}
+
+.timeline-item.completed .timeline-dot {
+  background: var(--success-color);
+  box-shadow: 0 0 0 2rpx var(--success-color);
+}
+
+.timeline-item.current .timeline-dot {
+  background: var(--primary-color);
+  box-shadow: 0 0 0 2rpx var(--primary-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.timeline-line {
+  position: absolute;
+  left: 7rpx;
+  top: 28rpx;
+  width: 2rpx;
+  height: calc(100% - 8rpx);
+  background: #E8E8E8;
+}
+
+.timeline-item.completed .timeline-line {
+  background: var(--success-color);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.timeline-status {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.timeline-item.completed .timeline-status,
+.timeline-item.current .timeline-status {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.timeline-time {
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+}
+
+/* 信息列表 */
+.info-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid var(--border-color);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+/* 费用列表 */
+.fee-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.fee-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.fee-value {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.fee-total .fee-label {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.fee-total .fee-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* 操作按钮区 */
+.action-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background: var(--card-bg);
+  border-top: 2rpx solid var(--border-color);
+  display: flex;
+  gap: 24rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.action-btn.primary {
+  background: var(--primary-color);
+  color: #FFFFFF;
+}
+
+.action-btn.primary:active {
+  background: #096DD9;
+}
+
+.action-btn.default {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  border: 2rpx solid var(--border-color);
+}
+
+.action-btn.default:active {
+  background: #F5F5F5;
+}
+
+.action-btn.danger {
+  background: #FFF1F0;
+  color: var(--error-color);
+  border: 2rpx solid var(--error-color);
+}
+
+.action-btn.danger:active {
+  background: #FFCCC7;
+}

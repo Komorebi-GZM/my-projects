@@ -1,0 +1,149 @@
+# ============================================
+# 中国象棋AI对弈工具 - 主配置文件
+# ============================================
+# 配置优先级：环境变量 > 本配置文件 > 代码默认值
+# 敏感信息（API Key）请通过环境变量或 .env 文件配置
+
+# ==================== 应用基础配置 ====================
+app:
+  name: "中国象棋AI对弈工具"
+  version: "0.1.2"
+  debug: false
+  # 数据存储目录（相对路径或绝对路径）
+  data_dir: "./data"
+  # 日志目录
+  log_dir: "./logs"
+
+# ==================== GUI 配置 ====================
+gui:
+  # 窗口尺寸
+  window_width: 800
+  window_height: 700
+  
+  # 棋盘布局
+  board_margin: 30          # 棋盘边距（像素）
+  grid_size: 60             # 网格间距（像素）
+  
+  # 功能开关
+  animation_enabled: true   # 走子动画
+  animation_duration_ms: 200  # 动画时长（毫秒）
+  sound_enabled: true       # 音效开关
+  show_hints: true          # 新手提示
+  show_coordinates: true    # 显示坐标
+  
+  # 主题设置
+  theme: "classic"          # 可选: classic, modern, dark
+  
+  # 帧率控制
+  target_fps: 60
+
+# ==================== LLM 模型配置 ====================
+model:
+  # 默认使用的模型名称
+  # 云端模型: deepseek-chat, gpt-4o, qwen-max
+  # 本地模型: qwen2.5, llama3.2 (需配合 provider: ollama)
+  name: "SDU-AI/DeepSeek-V4-Flash"
+  
+  # 模型提供商
+  # 可选: deepseek, openai, dashscope(通义千问), ollama
+  provider: "openai"
+  
+  # API 基础地址（可选，默认使用官方地址）
+  # 从 .env 读取 OPENAI_BASE_URL
+  # base_url: "https://api.deepseek.com"
+  # base_url: "http://localhost:11434"  # Ollama 本地地址
+  
+  # 生成参数
+  temperature: 0.3          # 创造性参数（0.0-2.0，象棋建议 0.1-0.3）
+  max_tokens: 4096          # 最大生成 Token 数
+  timeout: 15               # API 调用超时（秒）
+  
+  # Prompt 版本
+  # 可选: minimal(极简), fewshot(本地模型), structured(JSON输出)
+  prompt_version: "minimal"
+
+# ==================== Agent 配置 ====================
+agent:
+  # LLM 非法走子最大重试次数
+  max_retries: 3
+  
+  # 重试间隔（秒）
+  retry_delay: 0.5
+  
+  # 检查点配置
+  checkpoint:
+    enabled: true
+    # 检查点存储方式: sqlite, memory
+    storage: "sqlite"
+    # 检查点数据库路径
+    db_path: "./data/checkpoints.db"
+    # 检查点保留天数（0 表示永久保留）
+    retention_days: 7
+
+# ==================== 游戏配置 ====================
+game:
+  # 默认人类执子颜色
+  human_side: "red"         # 可选: red, black
+   
+  # AI 思考时间限制（秒，0 表示无限制）
+  ai_thinking_timeout: 30
+   
+  # 长将判负的连续将军次数
+  perpetual_check_limit: 3
+   
+  # 重复局面判和的次数
+  repetition_limit: 3
+   
+  # 自然限着（无吃子、无兵动的最大步数，超过则判和）
+  max_half_moves: 120
+   
+  # AI 难度级别
+  difficulty: "medium"      # 可选: easy, medium, hard
+
+# ==================== 音效配置 ====================
+sound:
+  # 主音量（0.0-1.0）
+  master_volume: 0.7
+  
+  # 各类音效音量
+  move_volume: 0.8
+  capture_volume: 1.0
+  check_volume: 1.0
+  win_volume: 0.9
+  lose_volume: 0.9
+  invalid_volume: 0.5
+
+# ==================== 日志配置 ====================
+logging:
+  # 日志级别: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # 日志格式
+  format: "[{time}] [{level}] [{module}] {message}"
+  
+  # 控制台输出
+  console_output: true
+  
+  # 文件输出
+  file_output: true
+  file_path: "./logs/chess_ai.log"
+  
+  # 日志轮转
+  rotation:
+    enabled: true
+    max_bytes: 10485760     # 10 MB
+    backup_count: 5
+
+# ==================== 开发调试配置 ====================
+development:
+  # 启用调试模式（显示更多日志、开启热重载等）
+  debug_mode: false
+  
+  # 模拟 LLM 响应（用于离线开发测试）
+  mock_llm: false
+  
+  # 显示 FPS 计数器
+  show_fps: false
+  
+  # 显示调试信息（合法走位、坐标等）
+  show_debug_info: false
