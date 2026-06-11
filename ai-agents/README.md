@@ -1,6 +1,6 @@
 # AI Agents
 
-本目录收录三个独立的 AI Agent 项目，涵盖求职、教育、博弈三个垂直场景。
+本目录收录四个独立的 AI Agent 项目，涵盖求职、教育、博弈、本地生活四个垂直场景。
 
 ---
 
@@ -11,6 +11,7 @@
 | [foglift-po-wu/](./foglift-po-wu/) | FogLift·破雾 | 求职信息差 | 已完成，智联 AI 大赛提交版 |
 | [chess-ai/](./chess-ai/) | 中国象棋 AI | 博弈娱乐 | 已完成 |
 | [maitian-agent/](./maitian-agent/) | 麦田智囊 | 乡村教育 | 已完成 |
+| [meituan-local-activity-agent/](./meituan-local-activity-agent/) | 本地生活活动规划 Agent | 本地生活 | MVP 已完成，美团 Hackathon |
 
 ---
 
@@ -36,3 +37,11 @@
 
 - **架构**：感知层（ASR+OCR）→ 规划层（意图路由）→ 执行层（5 Agent 链）→ 记忆层（RAG）
 - **RAG**：自进化知识库，支持教师专属画像
+
+### 本地生活活动规划 Agent
+
+给定用户所在城市与空闲时间，自动规划合适的本地生活短时活动方案，美团 Hackathon 参赛作品。
+
+- **后端**：FastAPI + AI Agent 规划引擎
+- **前端**：Streamlit
+- **部署**：Docker Compose 一键启动
