@@ -1,0 +1,33 @@
+﻿variable,test_method,statistic,p_value,significant_raw,p_value_bonferroni,p_value_fdr,reject_bonferroni,reject_fdr,cohens_d,effect_magnitude
+Age,t-test,-0.7441,0.457383,False,1.0,0.542084,False,False,-0.0833,negligible
+Height,Mann-Whitney U,14495.0,0.03099,True,0.99168,0.066112,False,False,0.2164,small
+Weight,Mann-Whitney U,11967.0,0.361534,False,1.0,0.462764,False,False,-0.1057,negligible
+BMI,Mann-Whitney U,10938.0,0.030625,True,0.98,0.066112,False,False,-0.2427,small
+TBW,Mann-Whitney U,14262.0,0.061087,False,1.0,0.114987,False,False,0.2221,small
+ECW,t-test,3.2169,0.00143,True,0.04576,0.005084,True,True,0.3602,small
+ICW,Mann-Whitney U,13353.0,0.441743,False,1.0,0.542084,False,False,0.0953,negligible
+ECF_TBW_Ratio,Mann-Whitney U,14662.0,0.01792,True,0.57344,0.044111,False,True,0.3501,small
+TBFR_pct,Mann-Whitney U,9376.0,4.9e-05,True,0.001568,0.000314,True,True,-0.4614,small
+LM_pct,t-test,4.1259,4.7e-05,True,0.001504,0.000314,True,True,0.462,small
+Protein_pct,t-test,1.4951,0.13588,False,1.0,0.217408,False,False,0.1674,negligible
+VFR,Mann-Whitney U,12726.0,0.993684,False,1.0,0.993684,False,False,-0.0411,negligible
+BM,Mann-Whitney U,15930.5,9.4e-05,True,0.003008,0.000501,True,True,0.4423,small
+MM,Mann-Whitney U,13985.0,0.124406,False,1.0,0.209526,False,False,0.1806,negligible
+Obesity (%),Mann-Whitney U,12763.0,0.957878,False,1.0,0.988777,False,False,0.0043,negligible
+TFC,Mann-Whitney U,9887.5,0.000587,True,0.018784,0.002496,True,True,-0.3539,small
+VFA,Mann-Whitney U,10416.5,0.005189,True,0.166048,0.015095,False,True,-0.3026,small
+VMA_kg,t-test,1.303,0.193516,False,1.0,0.281478,False,False,0.1459,negligible
+HFA,Mann-Whitney U,11435.0,0.095773,False,1.0,0.170263,False,False,-0.1807,negligible
+Glucose,Mann-Whitney U,13655.5,0.255417,False,1.0,0.340556,False,False,0.0627,negligible
+TC,Mann-Whitney U,12862.0,0.862631,False,1.0,0.92014,False,False,-0.0149,negligible
+LDL,Mann-Whitney U,13901.0,0.151395,False,1.0,0.230697,False,False,0.132,negligible
+HDL,Mann-Whitney U,10150.5,0.001812,True,0.057984,0.005798,False,True,-0.3541,small
+Triglyceride,Mann-Whitney U,12960.5,0.769785,False,1.0,0.849418,False,False,0.0845,negligible
+AST,Mann-Whitney U,16964.0,0.0,True,0.0,0.0,True,True,0.5672,medium
+ALT,Mann-Whitney U,13757.0,0.207278,False,1.0,0.288387,False,False,0.175,negligible
+ALP,Mann-Whitney U,11040.0,0.041517,True,1.0,0.083034,False,False,-0.2267,small
+Creatinine,Mann-Whitney U,14686.5,0.016899,True,0.540768,0.044111,False,True,0.2642,small
+GFR,Mann-Whitney U,13111.5,0.634097,False,1.0,0.724682,False,False,0.0374,negligible
+CRP,Mann-Whitney U,5299.0,0.0,True,0.0,0.0,True,True,-1.2029,large
+HGB,Mann-Whitney U,15536.5,0.000624,True,0.019968,0.002496,True,True,0.4054,small
+Vitamin D,Mann-Whitney U,18289.0,0.0,True,0.0,0.0,True,True,0.7614,medium

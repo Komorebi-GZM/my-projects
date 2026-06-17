@@ -1,0 +1,66 @@
+{
+  "PROJECT_NAME": "Genesis_Anomaly_Analysis",
+  "PROJECT_DESCRIPTION": "PLC小型零件自动分拣系统——基于Genesis工业数据集的传感器性能、异常检测与运行效能分析",
+  "RAW_DATA_FILENAME": "Genesis_AnomalyLabels.csv",
+  "DATA_FORMAT": "csv",
+  "ENTITY_NAME": "PLC工作状态",
+  "ENTITY_CONFIG": [
+    "Idle（待机）",
+    "Homing（回零）",
+    "Pickup（取料）",
+    "Inspection（检测）",
+    "Sorting_Metal（金属分拣）",
+    "Sorting_NonMetal（非金属分拣）",
+    "Return（返回）",
+    "Error（错误）",
+    "Unknown（未知）"
+  ],
+  "CHAPTER_LIST": [
+    {
+      "id": 1,
+      "name_cn": "数据概览与清洗",
+      "name_en": "data_overview_and_cleaning",
+      "dir_suffix": "data_overview_and_cleaning"
+    },
+    {
+      "id": 2,
+      "name_cn": "PLC状态机与工序分析",
+      "name_en": "plc_state_machine_analysis",
+      "dir_suffix": "plc_state_machine_analysis"
+    },
+    {
+      "id": 3,
+      "name_cn": "异常检测与抗干扰分析",
+      "name_en": "anomaly_detection_analysis",
+      "dir_suffix": "anomaly_detection_analysis"
+    },
+    {
+      "id": 4,
+      "name_cn": "传感器性能关联分析",
+      "name_en": "sensor_performance_analysis",
+      "dir_suffix": "sensor_performance_analysis"
+    },
+    {
+      "id": 5,
+      "name_cn": "运行效能评估",
+      "name_en": "performance_evaluation",
+      "dir_suffix": "performance_evaluation"
+    }
+  ],
+  "CHAPTER_DEPENDENCIES": {
+    "ch01": [],
+    "ch02": ["ch01"],
+    "ch03": ["ch02"],
+    "ch04": ["ch01"],
+    "ch05": ["ch03", "ch04"]
+  },
+  "PYTHON_VERSION": "3.10",
+  "ENV_NAME": "py310",
+  "DATA_FILES": {
+    "anomaly_labels": "原始数据1/Genesis_AnomalyLabels.csv",
+    "state_machine_labels": "原始数据1/Genesis_StateMachineLabel.csv",
+    "lineardrive": "原始数据1/Genesis_lineardrive.csv",
+    "normal": "原始数据1/Genesis_normal.csv",
+    "pressure": "原始数据1/Genesis_pressure.csv"
+  }
+}

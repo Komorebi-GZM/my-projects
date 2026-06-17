@@ -1,0 +1,8 @@
+﻿country,country_cn,city,city_cn,province,climate_type,data_source,load_rate,cv,seasonal_strength,population_10k,gdp_billion_cny,avg_temp_c,annual_precipitation_mm,main_industries,estimated_city_electricity_twh,per_capita_electricity_kwh,max_load_gw,peak_valley_ratio,residential_pct,industrial_pct,renewable_pct,actual_avg_temp_c
+Morocco,摩洛哥,Laayoune,Laayoune,Morocco,Arid/Semi-arid,Smart meter data,0.3850857142857143,0.5839714285714285,0.6432,,,,,,,,,,,,,
+Morocco,摩洛哥,Boujdour,Boujdour,Morocco,Arid/Semi-arid,Smart meter data,0.26742857142857146,0.6694285714285716,0.5862,,,,,,,,,,,,,
+Morocco,摩洛哥,Foum eloued,Foum eloued,Morocco,Arid/Semi-arid,Smart meter data,0.24887142857142858,0.6718714285714286,0.6012,,,,,,,,,,,,,
+Morocco,摩洛哥,Marrakech,Marrakech,Morocco,Arid/Semi-arid,Smart meter data,0.41518571428571427,0.5000714285714286,0.5819,,,,,,,,,,,,,
+China,中国,Xining,西宁,青海,高原干旱气候,,0.7236842105263158,,,248.0,1680.0,6.0,380.0,旅游、轻工业、新能源,41.83434343434343,16868.686868686866,15.2,0.55,18.5,72.1,85.0,6.837931034482759
+China,中国,Yinchuan,银川,宁夏,温带大陆性气候,,0.7486486486486487,,,289.0,2536.0,9.0,200.0,能源化工、农业、食品加工,50.146482758620685,17351.724137931033,18.5,0.5,12.1,81.5,50.0,10.03103448275862
+China,中国,Jiuquan,酒泉,甘肃,温带大陆性气候,,0.7302631578947367,,,113.0,820.0,8.0,80.0,新能源、旅游、航空航天,7.501566265060241,6638.55421686747,22.8,0.54,17.4,71.8,60.0,9.03103448275862

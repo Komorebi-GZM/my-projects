@@ -1,0 +1,24 @@
+{
+  "数据集名称": "UCI Gallstone Dataset",
+  "原始数据维度": "319 x 39",
+  "清洗后数据维度": "319 x 39",
+  "缺失值": "无",
+  "重复行": "0 行",
+  "列名标准化": "手动映射 29 个列名",
+  "异常值检测方法": "IQR (1.5 x IQR)",
+  "异常值总数量": 226,
+  "含异常值的列数": 26,
+  "异常值处理方法": "Winsorize (截断至IQR边界)",
+  "高度相关特征对数量(|r|>0.7)": 45,
+  "输出文件": [
+    "ch01_cleaned_dataset.csv",
+    "ch01_cleaned_dataset.xlsx",
+    "ch01_outlier_report.csv",
+    "ch01_cleaned_data_statistics.csv",
+    "ch01_boxplot_before_after.png",
+    "ch01_histogram_cleaned.png",
+    "ch01_correlation_heatmap.png",
+    "ch01_target_distribution.png",
+    "ch01_cleaning_report.json"
+  ]
+}

@@ -1,0 +1,33 @@
+﻿variable,test_method,statistic,p_value,significant_raw
+Age,t-test,-0.7441,0.457383,False
+Height,Mann-Whitney U,14495.0,0.03099,True
+Weight,Mann-Whitney U,11967.0,0.361534,False
+BMI,Mann-Whitney U,10938.0,0.030625,True
+TBW,Mann-Whitney U,14262.0,0.061087,False
+ECW,t-test,3.2169,0.00143,True
+ICW,Mann-Whitney U,13353.0,0.441743,False
+ECF_TBW_Ratio,Mann-Whitney U,14662.0,0.01792,True
+TBFR_pct,Mann-Whitney U,9376.0,4.9e-05,True
+LM_pct,t-test,4.1259,4.7e-05,True
+Protein_pct,t-test,1.4951,0.13588,False
+VFR,Mann-Whitney U,12726.0,0.993684,False
+BM,Mann-Whitney U,15930.5,9.4e-05,True
+MM,Mann-Whitney U,13985.0,0.124406,False
+Obesity (%),Mann-Whitney U,12763.0,0.957878,False
+TFC,Mann-Whitney U,9887.5,0.000587,True
+VFA,Mann-Whitney U,10416.5,0.005189,True
+VMA_kg,t-test,1.303,0.193516,False
+HFA,Mann-Whitney U,11435.0,0.095773,False
+Glucose,Mann-Whitney U,13655.5,0.255417,False
+TC,Mann-Whitney U,12862.0,0.862631,False
+LDL,Mann-Whitney U,13901.0,0.151395,False
+HDL,Mann-Whitney U,10150.5,0.001812,True
+Triglyceride,Mann-Whitney U,12960.5,0.769785,False
+AST,Mann-Whitney U,16964.0,0.0,True
+ALT,Mann-Whitney U,13757.0,0.207278,False
+ALP,Mann-Whitney U,11040.0,0.041517,True
+Creatinine,Mann-Whitney U,14686.5,0.016899,True
+GFR,Mann-Whitney U,13111.5,0.634097,False
+CRP,Mann-Whitney U,5299.0,0.0,True
+HGB,Mann-Whitney U,15536.5,0.000624,True
+Vitamin D,Mann-Whitney U,18289.0,0.0,True

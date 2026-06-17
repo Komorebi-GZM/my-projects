@@ -1,0 +1,6 @@
+parameter,value_2020,value_2026,cagr,cagr_pct,direction,interpretation
+battery_capacity_kwh,76.39,76.84,0.001,+0.10%,Higher is better,Avg growth +0.10%
+range_miles,264.78,270.31,0.0034,+0.34%,Higher is better,Avg growth +0.34%
+charging_speed_kw,124.43,146.83,0.028,+2.80%,Higher is better,Avg growth +2.80%
+horsepower,563.35,718.8,0.0414,+4.14%,Higher is better,Avg growth +4.14%
+acceleration_0_60_mph,5.62,5.54,-0.0022,-0.22%,Lower is better,Avg change -0.22% (decrease = performance improvement)

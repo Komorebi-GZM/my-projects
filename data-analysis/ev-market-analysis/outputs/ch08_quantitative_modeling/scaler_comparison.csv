@@ -1,0 +1,5 @@
+segment,best_K_independent,silhouette_independent,best_K_global,silhouette_global,improvement
+Budget,5,0.1447,2,0.1921,-0.0474
+Luxury,3,0.1761,2,0.1999,-0.0238
+Mid-range,2,0.1569,2,0.1654,-0.0085
+Premium,2,0.1639,2,0.156,0.0079

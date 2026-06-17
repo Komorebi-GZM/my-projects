@@ -1,0 +1,4 @@
+﻿model,accuracy_mean,accuracy_std,precision_weighted_mean,precision_weighted_std,recall_weighted_mean,recall_weighted_std,f1_weighted_mean,f1_weighted_std,roc_auc_mean,roc_auc_std
+LogisticRegression,0.8183,0.0516,0.828,0.0469,0.8183,0.0516,0.8164,0.0532,0.8787,0.0422
+RandomForest,0.7807,0.0489,0.7846,0.0461,0.7807,0.0489,0.7796,0.0497,0.8438,0.0391
+GradientBoosting,0.7585,0.0329,0.7623,0.0302,0.7585,0.0329,0.7575,0.0338,0.8237,0.0297

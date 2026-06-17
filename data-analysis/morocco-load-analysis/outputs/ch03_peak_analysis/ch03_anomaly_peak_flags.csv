@@ -1,0 +1,18 @@
+city,zone,total_peaks,anomaly_peaks,regular_peaks,anomaly_ratio
+Laayoune,zone1,4445,322,4123,7.24
+Laayoune,zone2,4445,472,3973,10.62
+Laayoune,zone3,4445,95,4350,2.14
+Laayoune,zone4,4445,216,4229,4.86
+Laayoune,zone5,4445,174,4271,3.91
+Boujdour,zone1,4446,114,4332,2.56
+Boujdour,zone2,4445,123,4322,2.77
+Boujdour,zone3,4445,859,3586,19.33
+Foum eloued,zone1,4445,94,4351,2.11
+Foum eloued,zone2,4445,315,4130,7.09
+Foum eloued,zone3,4445,168,4277,3.78
+Foum eloued,zone4,4445,434,4011,9.76
+Foum eloued,zone5,4445,94,4351,2.11
+Foum eloued,zone6,4445,405,4040,9.11
+Foum eloued,zone7,4444,210,4234,4.73
+Marrakech,zone1,2627,139,2488,5.29
+Marrakech,zone2,2521,49,2472,1.94

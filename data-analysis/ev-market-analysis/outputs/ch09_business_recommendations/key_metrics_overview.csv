@@ -1,0 +1,37 @@
+metric_name,value,chapter,dimension
+TOP3品牌,"Tesla, BYD, Volkswagen",ch02,品牌竞争
+TOP1品牌销量,28.6M,ch02,品牌竞争
+CR5市场集中度,84.8%,ch02,品牌竞争
+市场品牌总数,20,ch02,品牌竞争
+价格最重要因素,horsepower,ch03,价格分析
+TOP1因素重要性,39.30%,ch03,价格分析
+Top5因素累计重要性,91.94%,ch03,价格分析
+价格-马力相关系数,0.7539,ch03,价格分析
+价格-扭矩相关系数,0.7498,ch03,价格分析
+battery_capacity_kwh CAGR,0.0%,ch04,技术趋势
+range_miles CAGR,0.0%,ch04,技术趋势
+charging_speed_kw CAGR,0.0%,ch04,技术趋势
+horsepower CAGR,0.0%,ch04,技术趋势
+acceleration_0_60_mph CAGR,-0.0%,ch04,技术趋势
+畅销车充电速度优势,+26.4%,ch05,销量归因
+畅销车客户评分优势,+1.69%,ch05,销量归因
+销量冠军车型,Tesla Model Y,ch05,销量归因
+销量冠军年均销量,386K,ch05,销量归因
+销量CAGR(2020-2026),26.5%,ch06,市场趋势
+均价CAGR(2020-2026),3.88%,ch06,市场趋势
+续航CAGR(2020-2026),0.34%,ch06,市场趋势
+性价比最高车型,Ford Mustang Mach-E,ch07,竞品对标
+最高性价比评分,0.727,ch07,竞品对标
+Premium细分车型数,393,ch07,竞品对标
+Mid-range细分车型数,353,ch07,竞品对标
+Luxury细分车型数,251,ch07,竞品对标
+Budget细分车型数,73,ch07,竞品对标
+最优模型R²,0.9745,ch08,量化建模
+最优模型名称,XGBoost,ch08,量化建模
+Random Forest Test R²,0.9653,ch08,量化建模
+XGBoost Test R²,0.9745,ch08,量化建模
+分层聚类总簇数,9,ch08,量化建模
+Luxury层簇数,3,ch08,量化建模
+Budget层簇数,2,ch08,量化建模
+Mid-range层簇数,2,ch08,量化建模
+Premium层簇数,2,ch08,量化建模

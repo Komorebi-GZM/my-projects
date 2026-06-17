@@ -1,0 +1,5 @@
+city,var_seasonal,var_residual,seasonal_strength,strength_level,decomposition_method
+Laayoune,1.3309,0.7383,0.6432,Moderate (MA fallback),Moving Average
+Boujdour,0.828,0.5845,0.5862,Moderate (MA fallback),Moving Average
+Foum eloued,8.1039,5.3759,0.6012,Moderate (MA fallback),Moving Average
+Marrakech,746.8006,536.6006,0.5819,Moderate (MA fallback),Moving Average

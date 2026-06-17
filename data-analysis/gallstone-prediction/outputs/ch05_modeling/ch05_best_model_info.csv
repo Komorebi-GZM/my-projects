@@ -1,0 +1,2 @@
+﻿model_name,n_features,features,roc_auc_mean,roc_auc_std,f1_mean,accuracy_mean
+LogisticRegression,11,"CRP, Vitamin D, ECF_TBW_Ratio, BM, AST, HGB, HDL, VFA, Creatinine, ECW, TFC",0.8787,0.0422,0.8164,0.8183

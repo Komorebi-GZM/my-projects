@@ -1,0 +1,6 @@
+rank,model,MAE,RMSE,MAPE,quality
+1,Prophet,0.4364,0.4364,4.09,Outstanding
+2,LightGBM,0.664,4.737,4.88,Outstanding
+3,XGBoost,0.8415,13.7118,5.5,Excellent
+4,LSTM,1.5588,1.9229,14.41,Pass
+5,ARIMA,2.3333,2.8671,20.48,Needs Improvement

@@ -1,0 +1,16 @@
+chapter,metric,value
+ch01,Total Articles,139919
+ch01,Date Range (days),3757
+ch01,Categories,5
+ch01,Sources,7
+ch01,HIGH Impact %,2.2%
+ch03,Positive %,23.5%
+ch03,Negative %,20.6%
+ch03,Neutral %,55.9%
+ch03,Mean Confidence,0.8293
+ch04,Total Features,51
+ch04,Daily Rows,3758
+ch04,Avg Daily Sentiment,-0.0042
+ch05,High-Impact Events,959
+ch05,Event Types,5
+ch05,Avg Influence Score,0.222

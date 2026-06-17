@@ -1,0 +1,25 @@
+{
+    "PROJECT_NAME": "AB_Test_Analysis",
+    "PROJECT_DESCRIPTION": "A/B测试点击率数据分析",
+    "RAW_DATA_FILENAME": "ab_test_click_data.csv",
+    "DATA_FORMAT": "csv",
+    "ENTITY_NAME": "用户",
+    "ENTITY_CONFIG": ["exp", "con"],
+    "CHAPTER_LIST": [
+        {"id": 1, "name_cn": "数据清洗", "name_en": "data_cleaning", "dir_suffix": "data_cleaning"},
+        {"id": 2, "name_cn": "核心指标计算与可视化", "name_en": "metrics_visualization", "dir_suffix": "metrics_visualization"},
+        {"id": 3, "name_cn": "假设检验与效应量", "name_en": "hypothesis_testing", "dir_suffix": "hypothesis_testing"},
+        {"id": 4, "name_cn": "时间趋势分析", "name_en": "time_trend_analysis", "dir_suffix": "time_trend_analysis"},
+        {"id": 5, "name_cn": "结论与决策建议", "name_en": "conclusion_recommendation", "dir_suffix": "conclusion_recommendation"}
+    ],
+    "CHAPTER_DEPENDENCIES": {
+        "ch01": [],
+        "ch02": ["ch01"],
+        "ch03": ["ch01"],
+        "ch04": ["ch01"],
+        "ch05": ["ch02", "ch03", "ch04"]
+    },
+    "PYTHON_VERSION": "3.10",
+    "ENV_NAME": "system",
+    "ENV_TYPE": "system"
+}

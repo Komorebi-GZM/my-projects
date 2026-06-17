@@ -1,0 +1,7 @@
+﻿variable,test_method,chi2_statistic,p_value,dof,cramers_v,significant_raw,p_value_bonferroni,p_value_fdr,reject_bonferroni,reject_fdr
+Gender,Chi-squared,6.9132,0.008556,1.0,0.1535,True,0.051336,0.025668,False,True
+Comorbidity,Chi-squared (corrected),2.9868,0.393671,3.0,0.0968,False,1.0,0.472405,False,False
+CAD,Chi-squared,2.0683,0.150386,1.0,0.097,False,0.902316,0.225579,False,False
+Hypothyroidism,Fisher exact,,0.501712,,0.0552,False,1.0,0.501712,False,False
+Hyperlipidemia,Fisher exact,,0.003305,,0.1619,True,0.01983,0.01983,True,True
+DM,Chi-squared,2.9099,0.088035,1.0,0.1047,False,0.52821,0.17607,False,False

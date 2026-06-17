@@ -1,0 +1,16 @@
+﻿variable,variable_type,test_method,p_value,p_value_fdr,p_value_bonferroni,effect_size,effect_metric,effect_magnitude
+AST,continuous,Mann-Whitney U,0.0,0.0,0.0,0.5672,Cohen's d,medium
+CRP,continuous,Mann-Whitney U,0.0,0.0,0.0,-1.2029,Cohen's d,large
+Vitamin D,continuous,Mann-Whitney U,0.0,0.0,0.0,0.7614,Cohen's d,medium
+TBFR_pct,continuous,Mann-Whitney U,4.9e-05,0.000314,0.001568,-0.4614,Cohen's d,small
+LM_pct,continuous,t-test,4.7e-05,0.000314,0.001504,0.462,Cohen's d,small
+BM,continuous,Mann-Whitney U,9.4e-05,0.000501,0.003008,0.4423,Cohen's d,small
+TFC,continuous,Mann-Whitney U,0.000587,0.002496,0.018784,-0.3539,Cohen's d,small
+HGB,continuous,Mann-Whitney U,0.000624,0.002496,0.019968,0.4054,Cohen's d,small
+ECW,continuous,t-test,0.00143,0.005084,0.04576,0.3602,Cohen's d,small
+HDL,continuous,Mann-Whitney U,0.001812,0.005798,0.057984,-0.3541,Cohen's d,small
+VFA,continuous,Mann-Whitney U,0.005189,0.015095,0.166048,-0.3026,Cohen's d,small
+Hyperlipidemia,categorical,Fisher exact,0.003305,0.01983,0.01983,0.1619,Cramér's V,
+Gender,categorical,Chi-squared,0.008556,0.025668,0.051336,0.1535,Cramér's V,
+ECF_TBW_Ratio,continuous,Mann-Whitney U,0.01792,0.044111,0.57344,0.3501,Cohen's d,small
+Creatinine,continuous,Mann-Whitney U,0.016899,0.044111,0.540768,0.2642,Cohen's d,small

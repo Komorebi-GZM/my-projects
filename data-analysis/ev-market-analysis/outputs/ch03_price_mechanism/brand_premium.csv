@@ -1,0 +1,21 @@
+brand,avg_price,median_price,n_models,main_segment,country,premium_usd,premium_pct,price_tier,rank
+Lucid,160540.03,167006.82,2,Luxury,US,82512.96416004674,105.75,Luxury,1
+Porsche,141171.58,144099.88,2,Luxury,Germany,63144.51416004673,80.93,Luxury,2
+Mercedes,126219.7,125283.58,5,Luxury,Germany,48192.63416004674,61.76,Luxury,3
+BMW,99240.63,93953.08,5,Premium,Germany,21213.56416004675,27.19,Luxury,4
+Audi,94781.49,93778.88,4,Premium,Germany,16754.42416004675,21.47,Luxury,5
+Tesla,90924.02,87113.04,5,Luxury,US,12896.95416004675,16.53,Luxury,6
+Rivian,89942.35,87078.44,4,Premium,US,11915.284160046751,15.27,Luxury,7
+Polestar,86490.58,86679.56,3,Premium,Sweden,8463.514160046747,10.85,Luxury,8
+Fisker,85809.8,77587.25,2,Premium,US,7782.734160046748,9.97,Luxury,9
+NIO,82665.04,75082.66,5,Premium,China,4637.974160046739,5.94,Luxury,10
+Volvo,80160.33,77427.8,3,Premium,Sweden,2133.264160046747,2.73,Luxury,11
+Xiaomi,73640.81,67624.72,1,Mid-range,China,-4386.255839953257,-5.62,Premium,12
+Toyota,66470.8,63630.69,2,Mid-range,Japan,-11556.265839953252,-14.81,Premium,13
+Ford,66136.19,64696.27,4,Mid-range,US,-11890.875839953253,-15.24,Premium,14
+Volkswagen,65186.66,65135.45,5,Mid-range,Germany,-12840.405839953251,-16.46,Premium,15
+Kia,65095.22,62846.87,5,Mid-range,South Korea,-12931.845839953254,-16.57,Premium,16
+BYD,60142.65,53792.0,7,Mid-range,China,-17884.415839953253,-22.92,Premium,17
+Hyundai,59948.73,57336.62,5,Mid-range,South Korea,-18078.33583995325,-23.17,Premium,18
+GM/Chevrolet,56957.08,56644.29,5,Mid-range,US,-21069.985839953253,-27.0,Premium,19
+Honda,55985.64,55985.64,2,Mid-range,Japan,-22041.425839953255,-28.25,Premium,20

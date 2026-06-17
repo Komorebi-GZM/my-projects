@@ -1,0 +1,4 @@
+﻿city_cn,city_en,province,latitude,longitude,population_10k,gdp_billion_cny,climate_type,avg_temp_c,annual_precipitation_mm,main_industries,comparison_reason
+西宁,Xining,青海,36.6,101.7,248,1680,高原干旱气候,6.0,380,旅游、轻工业、新能源,高原干旱气候、中小城市规模、旅游+轻工业主导，与摩洛哥南部城市气候和产业结构相似
+银川,Yinchuan,宁夏,38.5,106.3,289,2536,温带大陆性气候,9.0,200,能源化工、农业、食品加工,干旱气候、能源化工产业、农业比重较高，与摩洛哥城市在干旱条件和产业多样性上相似
+酒泉,Jiuquan,甘肃,39.7,98.5,113,820,温带大陆性气候,8.0,80,新能源、旅游、航空航天,极干旱气候（年降水<100mm）、新能源基地、旅游业，与摩洛哥Laayoune等干旱城市高度相似

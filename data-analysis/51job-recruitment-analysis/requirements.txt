@@ -1,0 +1,21 @@
+# 51job_recruitment_analysis — Python 依赖清单
+# 环境要求: Python 3.10, conda env: py310
+
+# 数据处理
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1
+
+# 可视化
+matplotlib>=3.7
+seaborn>=0.12
+
+# 机器学习（聚类/关联分析）
+scikit-learn>=1.3
+
+# 中文处理
+jieba>=0.42
+wordcloud>=1.9
+
+# Jupyter
+jupyterlab>=4.0

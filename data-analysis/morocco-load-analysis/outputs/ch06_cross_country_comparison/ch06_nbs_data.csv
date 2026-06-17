@@ -1,0 +1,4 @@
+﻿province,year,total_electricity_twh,residential_electricity_twh,industrial_electricity_twh,gdp_billion_cny,population_10k,data_source
+青海省,2023,100.2,18.5,72.3,3799,594,manual_fallback: 国家统计局2023年统计公报
+宁夏回族自治区,2023,125.8,15.2,102.5,5315,725,manual_fallback: 国家统计局2023年统计公报
+甘肃省,2023,165.3,28.7,118.6,11863,2490,manual_fallback: 国家统计局2023年统计公报

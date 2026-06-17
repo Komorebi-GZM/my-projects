@@ -1,0 +1,13 @@
+parameter,high_n,low_n,u_statistic,p_value,significant_bonferroni,significant_raw
+price_usd,353,353,48331.5,0.0,Yes,Yes
+battery_capacity_kwh,353,353,61896.5,0.880452,No,No
+range_miles,353,353,61138.5,0.667056,No,No
+charging_speed_kw,353,353,77107.0,0.0,Yes,Yes
+horsepower,353,353,54157.5,0.0025,Yes,Yes
+acceleration_0_60_mph,353,353,65158.0,0.292361,No,No
+top_speed_mph,353,353,61051.0,0.643614,No,No
+torque_nm,353,353,54079.5,0.0024,Yes,Yes
+weight_kg,353,353,62143.0,0.952518,No,No
+customer_rating,353,353,70439.5,0.002678,Yes,Yes
+safety_rating,353,353,58693.0,0.136915,No,No
+warranty_years,353,353,48597.0,0.0,Yes,Yes

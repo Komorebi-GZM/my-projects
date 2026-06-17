@@ -1,0 +1,18 @@
+﻿chapter,category,metric,value,unit,source_file
+ch01,数据预处理,清洗后数据总量,319228,行,ch01_cleaned_data.csv
+ch01,数据预处理,城市/zone数量,4城市/17zone,-,数据概况
+ch01,数据预处理,时间粒度,10分钟,-,数据概况
+ch01,数据预处理,缺失率,0.00%,%,ch01_missing_stats.csv
+ch02,用电规律,日均负荷最高城市,Marrakech,kW,ch02_descriptive_stats.csv
+ch02,用电规律,日均负荷最低城市,Foum eloued,kW,ch02_descriptive_stats.csv
+ch02,用电规律,居民zone比例,14.3%,%,ch02_residential_industrial_class.csv
+ch03,峰值识别,峰值事件总数,71823,个,ch03_peak_events_summary.csv
+ch03,峰值识别,平均异常峰值比例,5.84%,%,ch03_anomaly_peak_flags.csv
+ch04,短期预测,最优模型,Prophet,-,ch04_model_comparison.csv
+ch04,短期预测,最优MAPE,4.09%,%,ch04_model_comparison.csv
+ch05,中长期趋势,最强季节性城市,Laayoune,-,ch05_seasonal_strength.csv
+ch05,中长期趋势,最强季节性Fs,0.6432,-,ch05_seasonal_strength.csv
+ch06,跨国对比,摩洛哥平均负荷率,0.33,-,ch06_benchmark_cleaned.csv
+ch06,跨国对比,中国平均负荷率,0.73,-,ch06_benchmark_cleaned.csv
+ch07,配电网优化,峰值降低率,0.0%,%,ch07_optimization_metrics.csv
+ch07,配电网优化,负荷率变化,0.0%,%,ch07_optimization_metrics.csv

@@ -1,0 +1,33 @@
+﻿feature,test,p_value,p_fdr,cohens_d,passed
+Vitamin D,Mann-Whitney U,0.0,0.0,0.7614,1
+CRP,Mann-Whitney U,0.0,0.0,-1.2029,1
+AST,Mann-Whitney U,0.0,0.0,0.5672,1
+LM_pct,t-test,4.7e-05,0.000314,0.462,1
+TBFR_pct,Mann-Whitney U,4.9e-05,0.000314,-0.4614,1
+BM,Mann-Whitney U,9.4e-05,0.000501,0.4423,1
+HGB,Mann-Whitney U,0.000624,0.002496,0.4054,1
+TFC,Mann-Whitney U,0.000587,0.002496,-0.3539,1
+ECW,t-test,0.00143,0.005084,0.3602,1
+HDL,Mann-Whitney U,0.001812,0.005798,-0.3541,1
+VFA,Mann-Whitney U,0.005189,0.015095,-0.3026,1
+Creatinine,Mann-Whitney U,0.016899,0.044111,0.2642,1
+ECF_TBW_Ratio,Mann-Whitney U,0.01792,0.044111,0.3501,1
+Height,Mann-Whitney U,0.03099,0.066112,0.2164,0
+BMI,Mann-Whitney U,0.030625,0.066112,-0.2427,0
+ALP,Mann-Whitney U,0.041517,0.083034,-0.2267,0
+TBW,Mann-Whitney U,0.061087,0.114987,0.2221,0
+HFA,Mann-Whitney U,0.095773,0.170263,-0.1807,0
+MM,Mann-Whitney U,0.124406,0.209526,0.1806,0
+Protein_pct,t-test,0.13588,0.217408,0.1674,0
+LDL,Mann-Whitney U,0.151395,0.230697,0.132,0
+VMA_kg,t-test,0.193516,0.281478,0.1459,0
+ALT,Mann-Whitney U,0.207278,0.288387,0.175,0
+Glucose,Mann-Whitney U,0.255417,0.340556,0.0627,0
+Weight,Mann-Whitney U,0.361534,0.462764,-0.1057,0
+ICW,Mann-Whitney U,0.441743,0.542084,0.0953,0
+Age,t-test,0.457383,0.542084,-0.0833,0
+GFR,Mann-Whitney U,0.634097,0.724682,0.0374,0
+Triglyceride,Mann-Whitney U,0.769785,0.849418,0.0845,0
+TC,Mann-Whitney U,0.862631,0.92014,-0.0149,0
+Obesity (%),Mann-Whitney U,0.957878,0.988777,0.0043,0
+VFR,Mann-Whitney U,0.993684,0.993684,-0.0411,0

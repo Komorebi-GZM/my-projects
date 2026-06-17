@@ -1,0 +1,33 @@
+﻿variable,shapiro_stat,p_value,is_normal
+Age,0.9921,0.08611,True
+Height,0.9853,0.0024,False
+Weight,0.9896,0.022131,False
+BMI,0.9871,0.006216,False
+TBW,0.9795,0.000161,False
+ECW,0.9935,0.182892,True
+ICW,0.974,1.6e-05,False
+ECF_TBW_Ratio,0.9758,3.3e-05,False
+TBFR_pct,0.991,0.04742,False
+LM_pct,0.9919,0.077522,True
+Protein_pct,0.9923,0.099345,True
+VFR,0.9818,0.000452,False
+BM,0.9726,9e-06,False
+MM,0.9825,0.000621,False
+Obesity (%),0.929,0.0,False
+TFC,0.978,8.2e-05,False
+VFA,0.9803,0.000228,False
+VMA_kg,0.9947,0.347349,True
+HFA,0.8065,0.0,False
+Glucose,0.906,0.0,False
+TC,0.9876,0.007706,False
+LDL,0.9874,0.006946,False
+HDL,0.9695,3e-06,False
+Triglyceride,0.9105,0.0,False
+AST,0.9186,0.0,False
+ALT,0.863,0.0,False
+ALP,0.9836,0.001059,False
+Creatinine,0.9672,1e-06,False
+GFR,0.9623,0.0,False
+CRP,0.7224,0.0,False
+HGB,0.9901,0.030335,False
+Vitamin D,0.9763,4.1e-05,False

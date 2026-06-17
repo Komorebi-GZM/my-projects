@@ -1,0 +1,4 @@
+﻿province,year,max_load_gw,min_load_gw,peak_valley_ratio,residential_pct,industrial_pct,renewable_pct,data_source
+青海省,2023,15.2,6.8,0.55,18.5,72.1,85.0,manual_fallback: 国家电网2023年社会责任报告
+宁夏回族自治区,2023,18.5,9.2,0.5,12.1,81.5,50.0,manual_fallback: 国家电网2023年社会责任报告
+甘肃省,2023,22.8,10.5,0.54,17.4,71.8,60.0,manual_fallback: 国家电网2023年社会责任报告

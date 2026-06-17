@@ -1,0 +1,5 @@
+﻿metric,poki_n,ng_n,poki_mean,ng_mean,u_stat,p_value,significant,test
+likes,1664,9742,188748.9976,59.6899,15925487.5,0.0,True,Mann-Whitney U
+dislikes,1664,9742,36109.4982,30.7106,15912186.5,0.0,True,Mann-Whitney U
+like_ratio,1660,9742,0.8108,0.5957,15160414.0,0.0,True,Mann-Whitney U
+tag_count,1664,9742,6.2464,2.1955,15686442.0,0.0,True,Mann-Whitney U

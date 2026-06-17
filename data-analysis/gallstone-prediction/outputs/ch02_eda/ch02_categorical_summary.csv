@@ -1,0 +1,15 @@
+﻿variable,value,count,percentage
+Gender,0,162,50.78
+Gender,1,157,49.22
+Comorbidity,0,217,68.03
+Comorbidity,1,99,31.03
+Comorbidity,2,1,0.31
+Comorbidity,3,2,0.63
+CAD,0,307,96.24
+CAD,1,12,3.76
+Hypothyroidism,0,310,97.18
+Hypothyroidism,1,9,2.82
+Hyperlipidemia,0,311,97.49
+Hyperlipidemia,1,8,2.51
+DM,0,276,86.52
+DM,1,43,13.48
